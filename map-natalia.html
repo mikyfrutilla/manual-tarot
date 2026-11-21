@@ -630,36 +630,36 @@
       .closing { padding: 28px 18px 24px; border-radius: 22px; }
     }
   
-    /* Adorable greeting penguin toast */
+    /* Big adorable greeting penguin toast on load (auto-hides after 6s) */
     .penguin-greeter {
       position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 999;
+      right: 26px;
+      bottom: 24px;
+      z-index: 2147483647;
       display: flex;
       align-items: flex-end;
-      gap: 10px;
-      opacity: 0;
-      transform: translateY(26px) scale(0.92);
-      pointer-events: none;
-      transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .penguin-greeter.is-open {
+      gap: 14px;
       opacity: 1;
       transform: translateY(0) scale(1);
       pointer-events: auto;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .penguin-greeter.is-hidden {
+      opacity: 0;
+      transform: translateY(34px) scale(0.9);
+      pointer-events: none;
     }
 
     .penguin-bubble {
       position: relative;
       background: #ffffff;
-      border: 2px solid var(--border-strong);
-      border-radius: 20px 20px 6px 20px;
-      padding: 12px 34px 12px 15px;
-      max-width: 245px;
-      box-shadow: 0 14px 28px -10px rgba(214, 56, 116, 0.28);
-      font-size: 0.86rem;
+      border: 2.5px solid var(--border-strong);
+      border-radius: 24px 24px 8px 24px;
+      padding: 16px 40px 16px 18px;
+      max-width: 290px;
+      box-shadow: 0 18px 34px -10px rgba(214, 56, 116, 0.34);
+      font-size: 0.96rem;
       font-weight: 600;
       color: var(--ink);
       line-height: 1.45;
@@ -669,22 +669,22 @@
       display: block;
       color: var(--rose-deep);
       font-family: 'Fredoka', sans-serif;
-      font-size: 0.98rem;
-      margin-bottom: 2px;
+      font-size: 1.18rem;
+      margin-bottom: 4px;
     }
 
     .penguin-close {
       position: absolute;
-      top: 7px;
-      right: 8px;
-      width: 22px;
-      height: 22px;
+      top: 9px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
       border: none;
       border-radius: 50%;
       background: #ffe3ef;
       color: var(--rose-deep);
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       cursor: pointer;
       display: grid;
       place-items: center;
@@ -698,46 +698,49 @@
     }
 
     .penguin-avatar-btn {
-      width: 78px;
-      height: 84px;
+      width: 156px;
+      height: 168px;
       padding: 0;
       border: none;
       background: transparent;
       cursor: pointer;
       flex-shrink: 0;
-      filter: drop-shadow(0 10px 18px rgba(214, 56, 116, 0.28));
+      filter: drop-shadow(0 14px 24px rgba(214, 56, 116, 0.32));
       transition: transform 0.22s ease;
     }
 
     .penguin-avatar-btn:hover {
-      transform: translateY(-4px) scale(1.04);
+      transform: translateY(-5px) scale(1.03);
     }
 
     .penguin-wing-wave {
       transform-origin: 24px 54px;
-      animation: waveWing 1.35s ease-in-out infinite;
+      animation: waveWing 1.1s ease-in-out infinite;
     }
 
     @keyframes waveWing {
       0%, 100% { transform: rotate(0deg); }
-      30% { transform: rotate(-28deg); }
-      60% { transform: rotate(12deg); }
+      30% { transform: rotate(-32deg); }
+      60% { transform: rotate(14deg); }
     }
 
     @media (max-width: 640px) {
       .penguin-greeter {
         right: 12px;
         bottom: 14px;
-        gap: 8px;
+        gap: 10px;
       }
       .penguin-bubble {
-        max-width: 195px;
-        padding: 10px 28px 10px 12px;
-        font-size: 0.8rem;
+        max-width: 215px;
+        padding: 12px 32px 12px 14px;
+        font-size: 0.86rem;
+      }
+      .penguin-bubble strong {
+        font-size: 1.02rem;
       }
       .penguin-avatar-btn {
-        width: 66px;
-        height: 72px;
+        width: 118px;
+        height: 128px;
       }
     }
 
@@ -755,8 +758,7 @@
       <span class="eyebrow">Natalia · Astrología &amp; Numerología</span>
       <h1>Mapa de <span class="pink-italic">Natalia</span></h1>
       <p class="lead">
-        Su carta natal, su revolución solar anual y la energía numerológica de su 2027 (nacida el 17/11)
-        en un recorrido claro, fresco y en tonos rosados.
+        Su carta natal, su revolución solar anual y la energía numerológica de su 2027 (nacida el 17/11).
       </p>
 
       <div class="tabs-bar" role="tablist" aria-label="Solapas principales">
@@ -768,6 +770,9 @@
         </button>
         <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-numerologia" id="tab-numerologia">
           Numerología 2027
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-astrotips" id="tab-astrotips">
+          Astrotips
         </button>
       </div>
       <div style="text-align: center; margin-top: 16px;">
@@ -1094,7 +1099,8 @@
               <span class="coords">6° 28' · Casa 2</span>
             </div>
             <p>
-              Aprendizaje sensible alrededor de cómo valora lo propio, cómo comunica sus necesidades y cómo afirma su
+              <strong>¿Qué es?</strong> Representa la herida sensible y el talento de sanación que desarrollamos con la experiencia.
+              En Géminis y Casa 2 marca un aprendizaje alrededor de cómo valora lo propio, cómo comunica sus necesidades y cómo afirma su
               seguridad personal.
             </p>
           </article>
@@ -1105,7 +1111,8 @@
               <span class="coords">8° 13' · Casa 12</span>
             </div>
             <p>
-              Fuerza instintiva y deseo de autonomía que a veces guarda en silencio o en momentos de soledad, pidiendo
+              <strong>¿Qué es?</strong> Señala el lado más instintivo, libre e indómito que suele reprimirse o incomodar.
+              En Aries y Casa 12 habla de una fuerza propia y un deseo de autonomía que a veces guarda en silencio o en momentos de soledad, pidiendo
               ser aceptado sin culpa.
             </p>
           </article>
@@ -1116,7 +1123,8 @@
               <span class="coords">13° 1' · Casa 10</span>
             </div>
             <p>
-              Encuentra facilidad y bienestar cuando se anima a ser auténtica en su rol público y aporta una mirada original.
+              <strong>¿Qué es?</strong> Indica dónde fluyen con mayor naturalidad el bienestar, la armonía y la sensación de logro.
+              En Acuario y Casa 10 encuentra facilidad y plenitud cuando se anima a ser auténtica en su rol público y aporta una mirada original.
             </p>
           </article>
         </div>
@@ -1699,96 +1707,239 @@
       </section>
     </div>
 
+
+    <!-- ========================================================= -->
+    <!-- SOLAPA 4: ASTROTIPS (TIPO CHISME)                         -->
+    <!-- ========================================================= -->
+    <div id="panel-astrotips" class="tab-panel" role="tabpanel" aria-labelledby="tab-astrotips">
+      <nav class="index-nav" aria-label="Secciones de Astrotips">
+        <a href="#tip-aries-doble">01. Ascendente + Lilith en Aries</a>
+        <a href="#tip-stellium-8">02. Stellium en Casa 8</a>
+        <a href="#tip-lilith-12">03. Lilith en Casa 12</a>
+        <a href="#tip-casa-7">04. Saturno y Plutón en Casa 7</a>
+        <a href="#tip-urano-mercurio">05. Conjunción Urano–Mercurio</a>
+        <a href="#tip-aries-acuario">06. Ascendente Aries vs. Marte Acuario</a>
+      </nav>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">00</span>
+            <h2>Astrotips sin filtro</h2>
+          </div>
+          <span class="panel-tag">Modo chisme cósmico</span>
+        </div>
+        <p class="panel-intro">
+          Acá va la lectura más jugosa y sin vueltas de esas combinaciones picantes que tiene Natalia en su carta natal:
+          lo que nadie cuenta en voz alta, cómo se siente por dentro y el tip real para jugarlo a favor.
+        </p>
+      </section>
+
+      <section id="tip-aries-doble" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">01</span>
+            <h2>Ascendente en Aries + Lilith en Aries</h2>
+          </div>
+          <span class="panel-tag">Doble fuego en el mismo signo</span>
+        </div>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El chisme cósmico</h3>
+            <p>
+              Tener tanto el Ascendente (22° 52') como a Lilith (8° 13') en Aries es como entrar a cualquier lugar con
+              cara de "yo me mando sola", pero cargando adentro una rebeldía todavía más salvaje que a veces ni ella
+              misma termina de admitir. Por fuera se ve decidida y frontal; por dentro tiene un radar hipersensible
+              a que nadie le diga qué hacer ni le corte las alas. Cuando alguien intenta mandonearla, por dentro ya
+              prendió fuego todo aunque por fuera sonría educadamente.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>¿Cómo trabajarlo?</h3>
+            <p>
+              <strong>El tip:</strong> Dejar de pedir permiso interno para ser intensa o independiente. Cuando reprime
+              ese impulso ariano por quedar bien, termina explotando por una pavada o sintiendo culpa después de poner
+              un límite. Canalizar ese fuego en movimiento físico, decisiones rápidas y proyectos propios hace que Lilith
+              pase de ser "rabia guardada" a puro magnetismo y seguridad personal.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tip-stellium-8" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">02</span>
+            <h2>Stellium en Casa 8</h2>
+          </div>
+          <span class="panel-tag">Sol · Mercurio · Urano</span>
+        </div>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El chisme cósmico</h3>
+            <p>
+              Con el Sol en Escorpio, Mercurio y Urano metidos en la Casa 8, Natalia tiene un detector de mentiras
+              incorporado de fábrica. No le interesa el chisme superficial: ella quiere saber la verdad oculta, lo que
+              nadie cuenta, el porqué detrás de cada gesto. La gente le confiesa secretos sin saber muy bien por qué, y
+              ella vive atravesando etapas de "muerte y renacimiento" donde cambia de piel por completo y deja atrás
+              versiones viejas de sí misma sin mirar atrás.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>El tip para aprovecharlo</h3>
+            <p>
+              Confiar en su intuición quirúrgica: si algo le hace ruido, probablemente tiene razón. Eso sí, no hace falta
+              vivir en modo detective 24/7 ni esperar una crisis para reinventarse; usar esa mente investigadora en
+              psicología, finanzas, estrategia o charlas profundas le da un poder enorme sin desgastarse.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tip-lilith-12" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">03</span>
+            <h2>Lilith en Casa 12</h2>
+          </div>
+          <span class="panel-tag">El secreto mejor guardado</span>
+        </div>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El chisme cósmico</h3>
+            <p>
+              Lilith en Casa 12 es la clásica "mosquita muerta... pero solo hasta que se cierra la puerta". Hacia afuera
+              puede mostrarse súper correcta, empática o adaptable, mientras en su mundo privado tiene pensamientos
+              filosísimos, ganas de mandar todo a volar y una necesidad gigante de desaparecer un rato del mundo para
+              recargar energía. También suele despertar envidias silenciosas o proyecciones raras en gente que no sabe
+              leerla del todo.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>El tip para aprovecharlo</h3>
+            <p>
+              No sentirse culpable por necesitar silencio, soledad o decir "hoy no estoy para nadie". Su intuición en
+              sueños y corazonadas es altísima: escribir lo que siente en privado o tener un espacio propio sin miradas
+              ajenas le evita tragarse enojos que después se vuelven cansancio mental.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tip-casa-7" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">04</span>
+            <h2>Saturno y Plutón en Casa 7 en Escorpio</h2>
+          </div>
+          <span class="panel-tag">Vínculos cero tibios</span>
+        </div>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El chisme cósmico</h3>
+            <p>
+              En el amor y en las sociedades uno a uno, Natalia no sabe jugar a medias: con Saturno y Plutón en Escorpio
+              en Casa 7 es todo o nada. O hay lealtad absoluta, profundidad real y compromiso serio, o prefiere estar
+              sola. Esta combinación suele traer relaciones que le cambian la vida de raíz (de esas que marcan un antes
+              y un después) y le enseñan a detectar al instante dónde hay juegos de poder, celos o falta de entrega.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>El tip para aprovecharlo</h3>
+            <p>
+              Soltar la necesidad de tener todo bajo control por miedo a que la lastimen. Cuando elige vínculos maduros
+              donde se puede hablar de frente sin tabúes, esta posición construye parejas y alianzas indestructibles,
+              leales y súper transformadoras.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tip-urano-mercurio" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">05</span>
+            <h2>Conjunción Urano–Mercurio en Sagitario</h2>
+          </div>
+          <span class="panel-tag">Mente eléctrica sin filtro</span>
+        </div>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El chisme cósmico</h3>
+            <p>
+              Mercurio (15° 54') pegado a Urano (12° 42') en Sagitario es tener Wi-Fi mental de alta velocidad. Le caen
+              fichas de la nada, conecta cabos antes que el resto y muchas veces suelta verdades tan directas y
+              inesperadas que deja a todos recalculando. Se aburre rápido de las charlas lentas o repetitivas porque su
+              cabeza ya va tres pasos adelante buscando el remate o la idea brillante.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>El tip para aprovecharlo</h3>
+            <p>
+              Tener siempre dónde anotar sus ideas repentinas porque de ahí salen sus mejores ocurrencias. Y un mini
+              freno de mano antes de hablar en caliente: su sinceridad sagitariana con voltaje uraniano es genial, pero
+              elegir el momento justo evita malentendidos innecesarios.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tip-aries-acuario" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">06</span>
+            <h2>La contradicción: Ascendente en Aries vs. Marte en Acuario</h2>
+          </div>
+          <span class="panel-tag">Impulso caliente · Acción fría</span>
+        </div>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El chisme cósmico</h3>
+            <p>
+              Acá hay un plot twist buenísimo: su Ascendente en Aries quiere arrancar ya, con toda la pasión y de frente,
+              pero Marte —que justamente es el planeta regente de Aries— está en Acuario (Casa 10). ¿En qué se traduce
+              ese chisme? En que por dentro se enciende al toque, pero a la hora de actuar se vuelve cerebral,
+              estratégica, desapegada y súper impredecible. Todos esperan que reaccione a los gritos o por impulso, y
+              ella de golpe toma distancia, analiza todo en frío y hace una jugada totalmente distinta a la que nadie
+              imaginaba.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>El tip para aprovecharlo</h3>
+            <p>
+              No pelearse con ese doble ritmo: usar la chispa de Aries para animarse a empezar y la cabeza fría de
+              Acuario para ejecutar con inteligencia y originalidad, especialmente en lo profesional (Casa 10). Es su
+              superpoder para no quedarse pegada en dramas y resolver con estilo propio.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <span class="eyebrow">Veredicto Astrotips</span>
+        <h2>Intensa por dentro, libre por fuera y siempre un paso adelante</h2>
+        <p>
+          Lejos de ser contradicciones que la frenan, estas combinaciones hacen que Natalia tenga intuición profunda,
+          mente rapidísima y una independencia que nadie puede domar.
+        </p>
+        <div class="advice-note">
+          <strong>Tip final · Astrotips</strong>
+          No trates de encajar en moldes tibios: tu carta está hecha para ir a fondo, pensar distinto y elegir vínculos y proyectos a tu altura.
+        </div>
+      </section>
+    </div>
+
     <footer>Natalia · Carta Natal, Revolución Solar &amp; Numerología 2027</footer>
   </div>
 
-  <script>
-    (function () {
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      const tabPanels = document.querySelectorAll('.tab-panel');
-      const panels = document.querySelectorAll('section.panel');
 
-      // Tab switching logic
-      tabButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const targetId = btn.getAttribute('aria-controls');
-
-          tabButtons.forEach((b) => {
-            b.classList.remove('is-active');
-            b.setAttribute('aria-selected', 'false');
-          });
-
-          tabPanels.forEach((panel) => {
-            panel.classList.remove('is-active');
-          });
-
-          btn.classList.add('is-active');
-          btn.setAttribute('aria-selected', 'true');
-
-          const activePanel = document.getElementById(targetId);
-          if (activePanel) {
-            activePanel.classList.add('is-active');
-          }
-
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      });
-
-      // Subtle active highlight on scroll for cards
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              entry.target.classList.toggle('is-visible', entry.isIntersecting);
-            });
-          },
-          { threshold: 0.12 }
-        );
-
-        panels.forEach((sec) => observer.observe(sec));
-      }
-
-      // Adorable penguin greeting on page load
-      const greeter = document.getElementById('penguinGreeter');
-      const closeBtn = document.getElementById('penguinCloseBtn');
-      const avatarBtn = document.getElementById('penguinAvatarBtn');
-      const msgEl = document.getElementById('penguinMessage');
-
-      const greetings = [
-        '¡Qué lindo tenerte acá! Bienvenida a tu mapa en rosita.',
-        '¡Hola! Tu 2027 viene con energía de Año Personal 3 ✨',
-        '¡Chu-chu! Tocá las solapas arriba para explorar todo.'
-      ];
-      let greetingIdx = 0;
-
-      if (greeter && closeBtn && avatarBtn && msgEl) {
-        window.addEventListener('DOMContentLoaded', () => {
-          setTimeout(() => {
-            greeter.classList.add('is-open');
-          }, 260);
-        });
-
-        closeBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          greeter.classList.remove('is-open');
-        });
-
-        avatarBtn.addEventListener('click', () => {
-          greetingIdx = (greetingIdx + 1) % greetings.length;
-          msgEl.textContent = greetings[greetingIdx];
-          greeter.classList.add('is-open');
-        });
-      }
-
-    })();
-  </script>
 
   <!-- Adorable greeting penguin on page load -->
   <aside id="penguinGreeter" class="penguin-greeter" aria-label="Saludo de bienvenida del pingüino">
     <div class="penguin-bubble" role="status" aria-live="polite">
       <button type="button" class="penguin-close" id="penguinCloseBtn" aria-label="Cerrar saludo">✕</button>
-      <strong>¡Hola, Nati! ♡</strong>
-      <span id="penguinMessage">¡Qué lindo tenerte acá! Bienvenida a tu mapa en rosita.</span>
+      <strong>Hola Naty!</strong>
+      <span id="penguinMessage">Bienvenida a tu mapa de vida</span>
     </div>
     <button type="button" class="penguin-avatar-btn" id="penguinAvatarBtn" title="¡Tocame para saludarte!" aria-label="Saludar al pingüino">
       <svg viewBox="0 0 88 94" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1831,6 +1982,94 @@
       </svg>
     </button>
   </aside>
+
+  <script>
+    (function () {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+      const panels = document.querySelectorAll('section.panel');
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('aria-controls');
+
+          tabButtons.forEach((b) => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+
+          tabPanels.forEach((panel) => {
+            panel.classList.remove('is-active');
+          });
+
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+
+          const activePanel = document.getElementById(targetId);
+          if (activePanel) {
+            activePanel.classList.add('is-active');
+          }
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              entry.target.classList.toggle('is-visible', entry.isIntersecting);
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        panels.forEach((sec) => observer.observe(sec));
+      }
+
+      const greeter = document.getElementById('penguinGreeter');
+      const closeBtn = document.getElementById('penguinCloseBtn');
+      const avatarBtn = document.getElementById('penguinAvatarBtn');
+      const msgEl = document.getElementById('penguinMessage');
+
+      const greetings = [
+        'Bienvenida a tu mapa de vida',
+        '¡Hola! Tu 2027 viene con energía de Año Personal 3 ✨',
+        '¡Chu-chu! Tocá las solapas arriba para explorar todo.'
+      ];
+      let greetingIdx = 0;
+      let hideTimer = null;
+
+      const startSixSecondTimer = () => {
+        if (!greeter) return;
+        if (hideTimer) clearTimeout(hideTimer);
+        greeter.classList.remove('is-hidden');
+        hideTimer = setTimeout(() => {
+          greeter.classList.add('is-hidden');
+        }, 6000);
+      };
+
+      if (greeter) {
+        startSixSecondTimer();
+      }
+
+      if (closeBtn && greeter) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (hideTimer) clearTimeout(hideTimer);
+          greeter.classList.add('is-hidden');
+        });
+      }
+
+      if (avatarBtn && msgEl && greeter) {
+        avatarBtn.addEventListener('click', () => {
+          greetingIdx = (greetingIdx + 1) % greetings.length;
+          msgEl.textContent = greetings[greetingIdx];
+          startSixSecondTimer();
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
