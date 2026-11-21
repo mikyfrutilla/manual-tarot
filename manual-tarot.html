@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual Tarot Rider Waite Smith</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    // Configuración de tipografías y colores de la estética romántica
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            roseBg: '#FFF4F7',
+            petalPink: '#F472B6',
+            blushRose: '#FBCFE8',
+            berryWine: '#831843',
+            softPlum: '#4C1D4B',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* =====================================================================
+       ESTILOS PERSONALIZADOS // ESTÉTICA FEMENINA Y ROMÁNTICA
+       ===================================================================== */
+    :root {
+      --bg-rose: #FFF4F7;
+      --ink-plum: #4C1D4B;
+      --ink-berry: #831843;
+      --accent-rose: #E11D48;
+      --accent-pink: #EC4899;
+      --border-pink: rgba(244, 114, 182, 0.35);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-rose);
+      color: var(--ink-plum);
+    }
+
+    body {
+      background-color: #FFF4F7;
+      background-image:
+        radial-gradient(circle at 12% 14%, rgba(244, 114, 182, 0.2), transparent 36%),
+        radial-gradient(circle at 88% 18%, rgba(251, 113, 133, 0.16), transparent 38%),
+        radial-gradient(circle at 50% 90%, rgba(216, 180, 254, 0.22), transparent 44%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Destellos suaves de fondo */
+    .romance-sparkles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(2px 2px at 14% 22%, rgba(244, 114, 182, 0.45) 50%, transparent 100%),
+        radial-gradient(2.5px 2.5px at 36% 68%, rgba(251, 113, 133, 0.4) 50%, transparent 100%),
+        radial-gradient(2px 2px at 68% 18%, rgba(192, 132, 252, 0.42) 50%, transparent 100%),
+        radial-gradient(2.2px 2.2px at 84% 55%, rgba(236, 72, 153, 0.4) 50%, transparent 100%),
+        radial-gradient(2px 2px at 25% 88%, rgba(244, 114, 182, 0.38) 50%, transparent 100%);
+      background-size: 440px 440px;
+      animation: sparkleFloat 45s ease-in-out infinite;
+    }
+
+    @keyframes sparkleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* Animación suave de corazones */
+    .heart-float {
+      animation: heartBob 5s ease-in-out infinite;
+    }
+
+    @keyframes heartBob {
+      0%, 100% { transform: translateY(0px) rotate(-4deg); }
+      50% { transform: translateY(-5px) rotate(4deg); }
+    }
+
+    /* Destellos iniciales aesthetic cute (3 segundos, rápidos y abundantes) */
+    .opening-sparkles-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 45;
+      overflow: hidden;
+    }
+
+    .cute-sparkle {
+      position: absolute;
+      left: var(--spark-x, 50%);
+      top: var(--spark-y, 50%);
+      color: var(--spark-color, #ec4899);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.25) rotate(-18deg);
+      filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.55));
+      animation: cuteSparkleBurst var(--spark-dur, 2.8s) cubic-bezier(0.16, 1, 0.3, 1) var(--spark-delay, 0s) forwards;
+    }
+
+    @keyframes cuteSparkleBurst {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2) rotate(-24deg);
+      }
+      12% {
+        opacity: 1;
+        transform: translate(calc(-50% + var(--drift-x, 0px) * 0.25), calc(-50% + var(--drift-y, -28px) * 0.25)) scale(1.22) rotate(10deg);
+      }
+      55% {
+        opacity: 0.92;
+        transform: translate(calc(-50% + var(--drift-x, 0px) * 0.72), calc(-50% + var(--drift-y, -28px) * 0.72)) scale(1.02) rotate(22deg);
+      }
+      86% {
+        opacity: 0.4;
+        transform: translate(calc(-50% + var(--drift-x, 0px) * 0.94), calc(-50% + var(--drift-y, -28px) * 0.94)) scale(0.72) rotate(34deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--drift-x, 0px)), calc(-50% + var(--drift-y, -28px))) scale(0.3) rotate(42deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .opening-sparkles-layer,
+      .cute-sparkle {
+        display: none !important;
+      }
+    }
+
+    /* Paneles traslúcidos tipo diario romántico */
+    .romance-panel {
+      background: rgba(255, 250, 252, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      box-shadow: 0 14px 36px -14px rgba(190, 24, 93, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    }
+
+    .card-tile {
+      background: linear-gradient(165deg, rgba(255, 252, 254, 0.96) 0%, rgba(255, 236, 244, 0.95) 100%);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .card-tile:hover {
+      transform: translateY(-3px);
+      border-color: rgba(225, 29, 72, 0.55);
+      box-shadow: 0 16px 32px -12px rgba(190, 24, 93, 0.22);
+    }
+
+    /* Flip 3D para cartas del simulador */
+    .flip-scene {
+      perspective: 1100px;
+    }
+
+    .flip-card {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .flip-card.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+
+    .reversed-card {
+      transform: rotate(180deg);
+    }
+
+    /* Scrollbar sutil en tonos rosa */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF0F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(244, 114, 182, 0.45);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(225, 29, 72, 0.65);
+    }
+
+    /* Impresión / Guardar como PDF */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #2d0c24 !important;
+      }
+      .romance-sparkles,
+      .no-print {
+        display: none !important;
+      }
+      .romance-panel,
+      .card-tile {
+        background: #ffffff !important;
+        color: #2d0c24 !important;
+        border: 1px solid #f9a8d4 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        break-inside: avoid;
+      }
+      .print-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-[#4C1D4B] antialiased selection:bg-pink-300/50 selection:text-[#831843]">
+  <!-- Capa decorativa de destellos -->
+  <div class="romance-sparkles" aria-hidden="true"></div>
+
+  <!-- Banner de aviso ante errores inesperados -->
+  <div id="globalErrorBanner" class="hidden max-w-7xl mx-auto mt-4 px-4 sm:px-6 lg:px-8 relative z-40">
+    <div class="rounded-2xl border border-rose-300 bg-rose-100 p-4 text-sm font-medium text-[#831843]"></div>
+  </div>
+
+  <!-- Capa de brillitos y estrellitas cute al abrir -->
+  <div id="openingSparkles" class="opening-sparkles-layer no-print" aria-hidden="true"></div>
+
+  <!-- Contenedor de mensajes tipo toast -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none no-print"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
+    <!-- ===================================================================
+         ENCABEZADO PRINCIPAL
+         =================================================================== -->
+    <header class="romance-panel rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-pink-300/25 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-rose-300/25 blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 relative">
+        <div class="space-y-3 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-wider uppercase bg-pink-100 text-[#831843] border border-pink-300">
+            <svg class="w-3.5 h-3.5 text-rose-500 fill-current heart-float" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span>Aures · Guia Arcanos Mayores y Menores</span>
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-5xl font-bold tracking-wide text-[#831843] flex items-center gap-3 flex-wrap">
+            <span>Manual Tarot Rider Waite Smith</span>
+            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-rose-500 fill-current shrink-0 heart-float" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </h1>
+
+          <p class="text-sm sm:text-base text-[#4C1D4B]/90 leading-relaxed max-w-2xl">
+            Aca te presentamos las 78 cartas del mazo clásico explicadas de forma simple: Mirá cada carta al derecho e invertida y ademas te damos un tip extra para el dia a dia
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 no-print">
+          <a href="#simulador" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-pink-500 to-rose-400 text-white hover:brightness-105 transition shadow-md shadow-pink-400/30">
+            Tirada en Vivo ♥
+          </a>
+          <a href="#tiradas" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-white hover:bg-pink-50 text-[#831843] border border-pink-300 transition">
+            Tipos de Tiradas
+          </a>
+          <button type="button" id="printPdfBtn" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-rose-100 hover:bg-rose-200 text-[#831843] border border-rose-300 transition cursor-pointer">
+            Guardar / PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- Métricas rápidas -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-8 pt-6 border-t border-pink-200/80">
+        <div class="rounded-2xl bg-white/85 border border-pink-200 p-3.5">
+          <div class="font-mono text-xs text-rose-500">ARCANOS MAYORES</div>
+          <div class="font-display text-xl sm:text-2xl font-bold text-[#831843] mt-0.5">22 Cartas ♥</div>
+          <div class="text-xs text-[#4C1D4B]/75">0 El Loco — XXI El Mundo</div>
+        </div>
+        <div class="rounded-2xl bg-white/85 border border-pink-200 p-3.5">
+          <div class="font-mono text-xs text-rose-500">ARCANOS MENORES</div>
+          <div class="font-display text-xl sm:text-2xl font-bold text-rose-600 mt-0.5">56 Cartas</div>
+          <div class="text-xs text-[#4C1D4B]/75">4 Palos × 14 Cartas</div>
+        </div>
+        <div class="rounded-2xl bg-white/85 border border-pink-200 p-3.5">
+          <div class="font-mono text-xs text-rose-500">DOBLE LECTURA</div>
+          <div class="font-display text-xl sm:text-2xl font-bold text-pink-600 mt-0.5">Derecho / Revés</div>
+          <div class="text-xs text-[#4C1D4B]/75">+ Símbolos y tip diario</div>
+        </div>
+        <div class="rounded-2xl bg-white/85 border border-pink-200 p-3.5">
+          <div class="font-mono text-xs text-rose-500">PRÁCTICA</div>
+          <div class="font-display text-xl sm:text-2xl font-bold text-[#831843] mt-0.5">4 Tiradas</div>
+          <div class="text-xs text-[#4C1D4B]/75">+ Mazo interactivo</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================================================================
+         BUSCADOR Y FILTROS DE LAS 78 CARTAS
+         =================================================================== -->
+    <section id="catalogo" aria-label="Catálogo de las 78 cartas" class="space-y-6">
+      <div class="romance-panel rounded-2xl p-4 sm:p-5 sticky top-3 z-30 no-print">
+        <div class="flex flex-col lg:flex-row gap-4 lg:items-center justify-between">
+          <!-- Pestañas por arcano o palo -->
+          <div id="filterTabs" class="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar cartas">
+            <button type="button" data-filter="all" role="tab" aria-selected="true" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-pink-500 to-rose-400 text-white shadow-sm transition cursor-pointer">
+              Todas (78) ♥
+            </button>
+            <button type="button" data-filter="major" role="tab" aria-selected="false" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white hover:bg-pink-50 text-[#831843] border border-pink-200 transition cursor-pointer">
+              Mayores (22)
+            </button>
+            <button type="button" data-filter="wands" role="tab" aria-selected="false" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white hover:bg-pink-50 text-[#831843] border border-pink-200 transition cursor-pointer">
+              Bastos • Fuego
+            </button>
+            <button type="button" data-filter="cups" role="tab" aria-selected="false" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white hover:bg-pink-50 text-[#831843] border border-pink-200 transition cursor-pointer">
+              Copas • Agua
+            </button>
+            <button type="button" data-filter="swords" role="tab" aria-selected="false" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white hover:bg-pink-50 text-[#831843] border border-pink-200 transition cursor-pointer">
+              Espadas • Aire
+            </button>
+            <button type="button" data-filter="pentacles" role="tab" aria-selected="false" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white hover:bg-pink-50 text-[#831843] border border-pink-200 transition cursor-pointer">
+              Oros • Tierra
+            </button>
+          </div>
+
+          <!-- Buscador y alternador Significado Invertido -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div class="relative flex-1 sm:w-64">
+              <input
+                type="search"
+                id="cardSearch"
+                placeholder="Buscá carta, símbolo o tema..."
+                aria-label="Buscar carta, símbolo o tema"
+                class="w-full rounded-xl bg-white border border-pink-300 focus:border-rose-500 focus:outline-none px-3.5 py-2 text-sm text-[#4C1D4B] placeholder-pink-300 transition"
+              />
+            </div>
+            <button
+              type="button"
+              id="togglePreviewReverse"
+              class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-pink-100 hover:bg-pink-200 text-[#831843] border border-pink-300 transition cursor-pointer whitespace-nowrap"
+            >
+              Significado Invertido
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-[#4C1D4B]/75 mt-3 pt-2.5 border-t border-pink-200/70">
+          <span id="resultsCounter" class="font-mono">Mostrando 78 de 78 cartas</span>
+          <span class="hidden sm:inline">Tocá cualquier carta para verla grande y leer todos sus detalles ♥</span>
+        </div>
+      </div>
+
+      <!-- Cuadrícula de las 78 cartas -->
+      <div id="cardsGrid" class="print-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+
+      <!-- Mensaje cuando no hay coincidencias -->
+      <div id="emptyState" class="hidden romance-panel rounded-2xl p-10 text-center space-y-3">
+        <p class="font-display text-xl font-bold text-[#831843]">No apareció ninguna carta con esa búsqueda</p>
+        <p class="text-sm text-[#4C1D4B]/80">Probá con otra palabra o limpiá los filtros para ver las 78 cartas.</p>
+        <button type="button" id="resetFiltersBtn" class="px-4 py-2 rounded-xl text-sm font-semibold bg-pink-500 text-white hover:bg-pink-600 transition cursor-pointer">
+          Ver todas las cartas
+        </button>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SIMULADOR INTERACTIVO DE TIRADAS EN PANTALLA
+         =================================================================== -->
+    <section id="simulador" aria-label="Simulador interactivo de tirada" class="romance-panel rounded-3xl p-6 sm:p-8 space-y-6 no-print">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-pink-200 pb-5">
+        <div class="space-y-1">
+          <div class="font-mono text-xs uppercase tracking-widest text-rose-500">Mazo Interactivo ♥</div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#831843]">Tirada en Vivo</h2>
+          <p class="text-sm text-[#4C1D4B]/85">Elegí una tirada, mezclá el mazo y tocá cada carta para darla vuelta. Si ya está dada vuelta, tocala de nuevo para abrir su vista ampliada.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <select id="simSpreadSelect" aria-label="Seleccionar tipo de tirada" class="rounded-xl bg-white border border-pink-300 px-3.5 py-2.5 text-sm text-[#4C1D4B] focus:border-rose-500 focus:outline-none">
+            <option value="1">1 Carta — Vibra del Día</option>
+            <option value="3" selected>3 Cartas — Pasado / Presente / Futuro</option>
+            <option value="7">7 Cartas — La Herradura</option>
+            <option value="10">10 Cartas — Cruz Celta</option>
+          </select>
+
+          <label class="inline-flex items-center gap-2 text-xs sm:text-sm text-[#4C1D4B] bg-white border border-pink-200 px-3 py-2.5 rounded-xl cursor-pointer select-none">
+            <input type="checkbox" id="allowReversedCheck" checked class="accent-pink-500 rounded" />
+            <span>Incluir invertidas</span>
+          </label>
+
+          <button type="button" id="drawSpreadBtn" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-pink-500 to-rose-400 text-white hover:brightness-105 transition cursor-pointer shadow-sm">
+            Mezclar y Sacar ♥
+          </button>
+          <button type="button" id="revealAllBtn" class="px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-white hover:bg-pink-50 text-[#831843] border border-pink-300 transition cursor-pointer">
+            Dar Vuelta Todas
+          </button>
+        </div>
+      </div>
+
+      <!-- Escenario donde aparecen las cartas -->
+      <div id="spreadStage" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"></div>
+    </section>
+
+    <!-- ===================================================================
+         TIPOS DE TIRADAS CLÁSICAS Y ACOMODO VISUAL
+         =================================================================== -->
+    <section id="tiradas" aria-label="Tipos de tiradas clásicas" class="space-y-6">
+      <div class="space-y-1">
+        <div class="font-mono text-xs uppercase tracking-widest text-rose-500">Cómo Armar Tu Lectura ♥</div>
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#831843]">Tipos de Tiradas Clásicas</h2>
+        <p class="text-sm text-[#4C1D4B]/85 max-w-3xl">Antes de mezclar, pensá bien qué querés preguntar. Los <strong class="text-[#831843]">Arcanos Mayores</strong> marcan procesos grandes o giros importantes; los <strong class="text-rose-600">Arcanos Menores</strong> cuentan el día a día, emociones, ideas y cosas prácticas.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- 1. Una carta -->
+        <article class="romance-panel rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl font-bold text-[#831843]">1. Tirada de Una Carta ♥</h3>
+            <span class="font-mono text-xs px-2.5 py-0.5 rounded-full bg-pink-100 text-[#831843] border border-pink-200">Diaria / Puntual</span>
+          </div>
+          <p class="text-sm text-[#4C1D4B]/90 leading-relaxed">Ideal para arrancar el día con cariño y foco, destrabar una duda puntual o bajar a tierra qué energía se está moviendo hoy.</p>
+          <div class="rounded-xl bg-white/90 border border-pink-200 p-3 flex flex-col items-center gap-1.5">
+            <div class="w-14 h-20 rounded-lg border-2 border-rose-400 bg-gradient-to-b from-pink-50 to-rose-100 flex flex-col items-center justify-center text-center px-1">
+              <span class="font-mono text-[10px] font-bold text-rose-600">♥ 1</span>
+              <span class="text-[9px] font-medium text-[#831843] leading-tight">Vibra del día</span>
+            </div>
+            <span class="font-mono text-[10px] text-[#4C1D4B]/70">Acomodo: 1 carta centrada frente a vos</span>
+          </div>
+          <ul class="text-xs sm:text-sm text-[#4C1D4B]/90 space-y-1.5 pt-2 border-t border-pink-200/70">
+            <li><strong class="text-rose-600">Carta única:</strong> La vibra principal del momento y la mejor actitud para acompañarla.</li>
+          </ul>
+        </article>
+
+        <!-- 2. Tres cartas -->
+        <article class="romance-panel rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl font-bold text-[#831843]">2. Tirada de Tres Cartas ♥</h3>
+            <span class="font-mono text-xs px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-200">Rápida / Clara</span>
+          </div>
+          <p class="text-sm text-[#4C1D4B]/90 leading-relaxed">Va de izquierda a derecha y sirve para entender cómo llegaste hasta acá, qué pasa hoy y hacia dónde florece la situación.</p>
+          <div class="rounded-xl bg-white/90 border border-pink-200 p-3 flex flex-col items-center gap-1.5">
+            <div class="flex items-center justify-center gap-2.5">
+              <div class="w-14 h-20 rounded-lg border border-pink-300 bg-pink-50 flex flex-col items-center justify-center text-center px-1">
+                <span class="font-mono text-[10px] font-bold text-pink-600">1</span>
+                <span class="text-[9px] font-medium text-[#831843] leading-tight">Pasado</span>
+              </div>
+              <div class="w-14 h-20 rounded-lg border border-rose-400 bg-rose-50 flex flex-col items-center justify-center text-center px-1">
+                <span class="font-mono text-[10px] font-bold text-rose-600">♥ 2</span>
+                <span class="text-[9px] font-medium text-[#831843] leading-tight">Presente</span>
+              </div>
+              <div class="w-14 h-20 rounded-lg border border-purple-300 bg-purple-50/70 flex flex-col items-center justify-center text-center px-1">
+                <span class="font-mono text-[10px] font-bold text-purple-700">3</span>
+                <span class="text-[9px] font-medium text-[#831843] leading-tight">Futuro</span>
+              </div>
+            </div>
+            <span class="font-mono text-[10px] text-[#4C1D4B]/70">Acomodo: fila horizontal de izquierda (1) a derecha (3)</span>
+          </div>
+          <ul class="text-xs sm:text-sm text-[#4C1D4B]/90 space-y-1.5 pt-2 border-t border-pink-200/70">
+            <li><strong class="text-[#831843]">1 (Izquierda):</strong> De dónde venís / Origen / Lo que pensás.</li>
+            <li><strong class="text-[#831843]">2 (Centro):</strong> Qué está pasando hoy / Reto / Lo que sentís.</li>
+            <li><strong class="text-[#831843]">3 (Derecha):</strong> Hacia dónde va / Consejo / Qué hacer.</li>
+          </ul>
+        </article>
+
+        <!-- 3. Herradura -->
+        <article class="romance-panel rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl font-bold text-[#831843]">3. La Herradura (7 Cartas) ♥</h3>
+            <span class="font-mono text-xs px-2.5 py-0.5 rounded-full bg-pink-100 text-[#831843] border border-pink-200">Proyectos / Vínculos</span>
+          </div>
+          <p class="text-sm text-[#4C1D4B]/90 leading-relaxed">Se arma en forma de "U" de izquierda a derecha. Es súper útil para ver qué no estás notando en un vínculo, proyecto o cambio.</p>
+          <div class="rounded-xl bg-white/90 border border-pink-200 p-3 flex flex-col items-center gap-1.5">
+            <div class="grid grid-cols-5 gap-1.5 items-center justify-items-center max-w-[260px] w-full">
+              <div class="w-11 h-14 rounded-md border border-pink-300 bg-pink-50 flex flex-col items-center justify-center">
+                <span class="font-mono text-[10px] font-bold text-pink-600">1</span>
+                <span class="text-[8px] text-[#831843]">Pasado</span>
+              </div>
+              <div class="w-11 h-14 rounded-md border border-pink-300 bg-pink-50 flex flex-col items-center justify-center">
+                <span class="font-mono text-[10px] font-bold text-pink-600">2</span>
+                <span class="text-[8px] text-[#831843]">Hoy</span>
+              </div>
+              <div class="w-11 h-14 rounded-md border border-rose-300 bg-rose-50 flex flex-col items-center justify-center">
+                <span class="font-mono text-[10px] font-bold text-rose-600">3</span>
+                <span class="text-[8px] text-[#831843]">Oculto</span>
+              </div>
+              <div class="w-11 h-14 rounded-md border border-purple-200 bg-purple-50/70 flex flex-col items-center justify-center">
+                <span class="font-mono text-[10px] font-bold text-purple-700">4</span>
+                <span class="text-[8px] text-[#831843]">Trabas</span>
+              </div>
+              <div class="w-11 h-14 rounded-md border border-purple-200 bg-purple-50/70 flex flex-col items-center justify-center">
+                <span class="font-mono text-[10px] font-bold text-purple-700">5</span>
+                <span class="text-[8px] text-[#831843]">Entorno</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center gap-4 pt-0.5">
+              <div class="w-12 h-14 rounded-md border border-rose-300 bg-rose-50 flex flex-col items-center justify-center">
+                <span class="font-mono text-[10px] font-bold text-rose-600">6</span>
+                <span class="text-[8px] text-[#831843]">Consejo</span>
+              </div>
+              <div class="w-12 h-14 rounded-md border border-pink-400 bg-pink-100 flex flex-col items-center justify-center">
+                <span class="font-mono text-[10px] font-bold text-[#831843]">♥ 7</span>
+                <span class="text-[8px] text-[#831843]">Cierre</span>
+              </div>
+            </div>
+            <span class="font-mono text-[10px] text-[#4C1D4B]/70">Acomodo: arco en "U" de 1 a 5 arriba y 6–7 abajo</span>
+          </div>
+          <ol class="text-xs sm:text-sm text-[#4C1D4B]/90 space-y-1 pt-2 border-t border-pink-200/70 list-decimal list-inside">
+            <li><strong class="text-[#831843]">Pasado</strong> · 2. <strong class="text-[#831843]">Presente</strong> · 3. <strong class="text-[#831843]">Lo que no se ve</strong></li>
+            <li><strong class="text-[#831843]">Trabas</strong> · 5. <strong class="text-[#831843]">Tu entorno</strong> · 6. <strong class="text-[#831843]">Consejo</strong></li>
+            <li><strong class="text-rose-600">7. Resultado más probable</strong></li>
+          </ol>
+        </article>
+
+        <!-- 4. Cruz Celta -->
+        <article class="romance-panel rounded-2xl p-6 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl font-bold text-[#831843]">4. Cruz Celta (10 Cartas) ♥</h3>
+            <span class="font-mono text-xs px-2.5 py-0.5 rounded-full bg-rose-100 text-[#831843] border border-rose-200">Lectura Completa</span>
+          </div>
+          <p class="text-sm text-[#4C1D4B]/90 leading-relaxed">La clásica para ir a fondo: mezcla una cruz en el centro con una columna al costado para mirar lo consciente, el corazón y el contexto.</p>
+          <div class="rounded-xl bg-white/90 border border-pink-200 p-3 flex flex-col items-center gap-1.5">
+            <div class="flex items-center justify-center gap-5 w-full">
+              <div class="flex flex-col items-center gap-1">
+                <div class="w-10 h-12 rounded border border-rose-300 bg-rose-50 flex items-center justify-center font-mono text-[10px] font-bold text-rose-600">5</div>
+                <div class="flex items-center gap-1">
+                  <div class="w-10 h-12 rounded border border-pink-300 bg-pink-50 flex items-center justify-center font-mono text-[10px] font-bold text-pink-600">4</div>
+                  <div class="relative w-10 h-12 rounded border-2 border-rose-400 bg-pink-100 flex items-center justify-center font-mono text-[10px] font-bold text-[#831843]">
+                    <span>1</span>
+                    <span class="ml-0.5 text-rose-600">/2</span>
+                  </div>
+                  <div class="w-10 h-12 rounded border border-pink-300 bg-pink-50 flex items-center justify-center font-mono text-[10px] font-bold text-pink-600">6</div>
+                </div>
+                <div class="w-10 h-12 rounded border border-rose-300 bg-rose-50 flex items-center justify-center font-mono text-[10px] font-bold text-rose-600">3</div>
+              </div>
+              <div class="flex flex-col-reverse items-center gap-1">
+                <div class="w-10 h-10 rounded border border-pink-300 bg-pink-50 flex items-center justify-center font-mono text-[10px] font-bold text-pink-600">7</div>
+                <div class="w-10 h-10 rounded border border-pink-300 bg-pink-50 flex items-center justify-center font-mono text-[10px] font-bold text-pink-600">8</div>
+                <div class="w-10 h-10 rounded border border-pink-300 bg-pink-50 flex items-center justify-center font-mono text-[10px] font-bold text-pink-600">9</div>
+                <div class="w-10 h-10 rounded border-2 border-rose-400 bg-rose-50 flex items-center justify-center font-mono text-[10px] font-bold text-rose-700">♥ 10</div>
+              </div>
+            </div>
+            <span class="font-mono text-[10px] text-[#4C1D4B]/70">Acomodo: cruz (1/2 centro, 3 abajo, 4 izq, 5 arriba, 6 der) + columna 7→10</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-[#4C1D4B]/90 pt-2 border-t border-pink-200/70">
+            <div><strong class="text-rose-600">1.</strong> Centro / Situación actual</div>
+            <div><strong class="text-rose-600">2.</strong> Lo que cruza o desafía</div>
+            <div><strong class="text-rose-600">3.</strong> Raíz / Inconsciente</div>
+            <div><strong class="text-rose-600">4.</strong> Pasado reciente</div>
+            <div><strong class="text-rose-600">5.</strong> Meta o foco consciente</div>
+            <div><strong class="text-rose-600">6.</strong> Lo que viene cerca</div>
+            <div><strong class="text-[#831843]">7.</strong> Tu actitud y recursos</div>
+            <div><strong class="text-[#831843]">8.</strong> Gente y contexto alrededor</div>
+            <div><strong class="text-[#831843]">9.</strong> Ganas y miedos ocultos</div>
+            <div><strong class="text-[#831843]">10.</strong> Cierre o desenlace</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="romance-panel rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#4C1D4B]/80">
+      <span>Manual Tarot Rider Waite Smith ♥ · Edición Romántica en español LATAM (Ilustraciones de Pamela Colman Smith, 1909 — Dominio Público)</span>
+      <span class="font-mono text-rose-500">78 Cartas · Derecho &amp; Invertido</span>
+    </footer>
+  </div>
+
+  <!-- ===================================================================
+       MODAL DE DETALLE AMPLIADO
+       =================================================================== -->
+  <div id="cardModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm no-print" role="dialog" aria-modal="true" aria-labelledby="modalCardTitle">
+    <div class="romance-panel rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-7 relative space-y-5">
+      <button type="button" id="closeModalBtn" aria-label="Cerrar detalle de carta" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-pink-100 hover:bg-pink-200 text-[#831843] flex items-center justify-center transition cursor-pointer">
+        ✕
+      </button>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+        <div class="w-40 sm:w-44 shrink-0 rounded-2xl overflow-hidden border-2 border-pink-300 bg-white shadow-md">
+          <img id="modalCardImg" src="" alt="" class="w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="space-y-2.5 text-center sm:text-left flex-1">
+          <div id="modalCardMeta" class="font-mono text-xs uppercase tracking-wider text-rose-600"></div>
+          <h3 id="modalCardTitle" class="font-display text-2xl sm:text-3xl font-bold text-[#831843]"></h3>
+          <p id="modalCardKeywords" class="text-xs sm:text-sm text-pink-600 font-semibold"></p>
+          <p id="modalEssenceText" class="text-sm text-[#4C1D4B] leading-relaxed pt-1"></p>
+          <div class="pt-1">
+            <button type="button" id="modalFlipBtn" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-pink-100 hover:bg-pink-200 text-[#831843] border border-pink-300 transition cursor-pointer">
+              Significado Invertido
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-white/90 border border-rose-200 p-4 space-y-1.5">
+          <div class="font-mono text-xs uppercase tracking-wider text-rose-600 font-semibold">▲ Al Derecho ♥</div>
+          <p id="modalUprightText" class="text-sm text-[#4C1D4B] leading-relaxed"></p>
+        </div>
+        <div class="rounded-2xl bg-white/90 border border-pink-200 p-4 space-y-1.5">
+          <div class="font-mono text-xs uppercase tracking-wider text-pink-600 font-semibold">▼ Invertida</div>
+          <p id="modalReversedText" class="text-sm text-[#4C1D4B] leading-relaxed"></p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-pink-50/90 border border-pink-200 p-4 space-y-1">
+          <div class="font-mono text-xs uppercase tracking-wider text-[#831843] font-semibold">♥ En la imagen</div>
+          <p id="modalSymbolsText" class="text-xs sm:text-sm text-[#4C1D4B] leading-relaxed"></p>
+        </div>
+        <div class="rounded-2xl bg-rose-50/90 border border-rose-200 p-4 space-y-1">
+          <div class="font-mono text-xs uppercase tracking-wider text-rose-600 font-semibold">✦ Tip extra para el día a día</div>
+          <p id="modalTipText" class="text-xs sm:text-sm text-[#4C1D4B] leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       JAVASCRIPT // DATOS DE LAS 78 CARTAS RWS Y LÓGICA INTERACTIVA
+       =================================================================== -->
+  <script>
+
+    /**
+     * Genera una ilustración vectorial SVG detallada y autocontenida para cada carta
+     * según su arcano, palo, número o figura, evitando llamadas HTTP externas.
+     */
+    function createFallbackSvgDataUrl(numeral, title, suitLabel, accentHex, cardId = '') {
+      const safeTitle = String(title || '').replace(/[<>&"]/g, '');
+      const safeNum = String(numeral || '').replace(/[<>&"]/g, '');
+      const safeSuit = String(suitLabel || '').replace(/[<>&"]/g, '');
+
+      let suitBadge = '♥ ARCANO MAYOR';
+      let motifSvg = `
+        <circle cx="150" cy="212" r="46" fill="#FFF0F5" stroke="${accentHex}" stroke-width="2.5"/>
+        <path d="M150 184 C135 162, 104 166, 104 194 C104 220, 150 250, 150 250 C150 250, 196 220, 196 194 C196 166, 165 162, 150 184 Z" fill="${accentHex}" fill-opacity="0.24" stroke="${accentHex}" stroke-width="2"/>
+        <circle cx="150" cy="144" r="14" fill="none" stroke="#831843" stroke-width="1.5" stroke-dasharray="3 2"/>
+      `;
+
+      if (cardId.startsWith('maj-')) {
+        const majorIdx = parseInt(cardId.replace('maj-', ''), 10);
+        const majorBadges = [
+          '☀ 0 · EL LOCO', '∞ I · EL MAGO', '☽ II · SACERDOTISA', '🌹 III · EMPERATRIZ',
+          '👑 IV · EMPERADOR', '🔑 V · HIEROFANTE', '❤ VI · ENAMORADOS', '🛡 VII · EL CARRO',
+          '🦁 VIII · LA FUERZA', '🏮 IX · ERMITAÑO', '☸ X · RUEDA', '⚖ XI · JUSTICIA',
+          '🌿 XII · EL COLGADO', '🌹 XIII · LA MUERTE', '🏆 XIV · TEMPLANZA', '🔥 XV · EL DIABLO',
+          '⚡ XVI · LA TORRE', '⭐ XVII · LA ESTRELLA', '🌕 XVIII · LA LUNA', '☀ XIX · EL SOL',
+          '🎺 XX · EL JUICIO', '🌍 XXI · EL MUNDO'
+        ];
+        suitBadge = majorBadges[majorIdx] || '♥ ARCANO MAYOR';
+        motifSvg = `
+          <polygon points="150,152 164,186 200,190 172,214 180,250 150,231 120,250 128,214 100,190 136,186" fill="${accentHex}" fill-opacity="0.14" stroke="${accentHex}" stroke-width="2"/>
+          <path d="M150 184 C136 164, 110 168, 110 192 C110 214, 150 240, 150 240 C150 240, 190 214, 190 192 C190 168, 164 164, 150 184 Z" fill="#F472B6" fill-opacity="0.32" stroke="#831843" stroke-width="1.8"/>
+        `;
+      } else if (cardId.startsWith('wand-')) {
+        suitBadge = `🔥 BASTOS · ${safeNum}`;
+        motifSvg = `
+          <line x1="150" y1="158" x2="150" y2="276" stroke="#831843" stroke-width="6" stroke-linecap="round"/>
+          <path d="M150 186 C126 172, 120 154, 136 144 C146 154, 149 170, 150 186 Z" fill="#FB7185" fill-opacity="0.55" stroke="#E11D48" stroke-width="1.8"/>
+          <path d="M150 212 C174 198, 180 180, 164 170 C154 180, 151 196, 150 212 Z" fill="#F472B6" fill-opacity="0.55" stroke="#DB2777" stroke-width="1.8"/>
+          <path d="M150 238 C128 226, 124 210, 138 202 C146 210, 149 224, 150 238 Z" fill="#FDA4AF" fill-opacity="0.5" stroke="#E11D48" stroke-width="1.5"/>
+        `;
+      } else if (cardId.startsWith('cups-')) {
+        suitBadge = `💧 COPAS · ${safeNum}`;
+        motifSvg = `
+          <path d="M114 170 H186 L176 228 C173 246, 163 254, 150 254 C137 254, 127 246, 124 228 Z" fill="#FCE7F3" stroke="#DB2777" stroke-width="2.5"/>
+          <path d="M122 184 Q150 174 178 184" fill="none" stroke="#F472B6" stroke-width="2"/>
+          <path d="M150 254 V280 M124 284 H176" stroke="#831843" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M150 156 C144 146, 132 148, 132 158 C132 167, 150 176, 150 176 C150 176, 168 167, 168 158 C168 148, 156 146, 150 156 Z" fill="#FB7185" fill-opacity="0.45"/>
+        `;
+      } else if (cardId.startsWith('swd-')) {
+        suitBadge = `🌬 ESPADAS · ${safeNum}`;
+        motifSvg = `
+          <line x1="150" y1="152" x2="150" y2="254" stroke="#831843" stroke-width="4.5" stroke-linecap="round"/>
+          <polygon points="150,142 141,164 159,164" fill="#831843"/>
+          <line x1="116" y1="228" x2="184" y2="228" stroke="#9333EA" stroke-width="5" stroke-linecap="round"/>
+          <line x1="150" y1="228" x2="150" y2="282" stroke="#9333EA" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="150" cy="285" r="5" fill="#EC4899"/>
+        `;
+      } else if (cardId.startsWith('pen-')) {
+        suitBadge = `🌿 OROS · ${safeNum}`;
+        motifSvg = `
+          <circle cx="150" cy="216" r="46" fill="#FFF1F2" stroke="#E11D48" stroke-width="3"/>
+          <circle cx="150" cy="216" r="38" fill="none" stroke="#F472B6" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <polygon points="150,178 161,204 189,206 167,224 174,251 150,236 126,251 133,224 111,206 139,204" fill="#FCE7F3" fill-opacity="0.65" stroke="#831843" stroke-width="1.8"/>
+        `;
+      }
+
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 500">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFF4F8"/>
+              <stop offset="55%" stop-color="#FFE8F1"/>
+              <stop offset="100%" stop-color="#FDE2EE"/>
+            </linearGradient>
+          </defs>
+          <rect width="300" height="500" rx="18" fill="url(#bg)"/>
+          <rect x="14" y="14" width="272" height="472" rx="12" fill="none" stroke="${accentHex}" stroke-opacity="0.65" stroke-width="2"/>
+          <text x="150" y="58" text-anchor="middle" fill="#831843" font-family="Georgia, serif" font-size="22" font-weight="700">${safeNum}</text>
+          <text x="150" y="82" text-anchor="middle" fill="#9D174D" font-family="monospace" font-size="10.5">${suitBadge}</text>
+          ${motifSvg}
+          <text x="150" y="324" text-anchor="middle" fill="#831843" font-family="Georgia, serif" font-size="17" font-weight="700">${safeTitle}</text>
+          <text x="150" y="446" text-anchor="middle" fill="${accentHex}" font-family="monospace" font-size="11.5">♥ ${safeSuit} · Local SVG ♥</text>
+        </svg>
+      `.trim();
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    }
+
+    /** Devuelve la ruta de la imagen descargada dentro de ./cards/. */
+    function getCardImageSources(card) {
+      if (!card || !card.img) return [];
+      return [card.img];
+    }
+
+    /** Usa la imagen local y conserva el SVG integrado como respaldo. */
+    function attachCardImageFallback(imgEl, card, fallbackSvg) {
+      if (!imgEl) return;
+      const localSrc = (getCardImageSources(card)[0]) || fallbackSvg;
+      imgEl.dataset.svgFallbackApplied = '0';
+      imgEl.loading = 'lazy';
+      imgEl.decoding = 'async';
+      imgEl.onerror = () => {
+        if (imgEl.dataset.svgFallbackApplied === '1') return;
+        imgEl.dataset.svgFallbackApplied = '1';
+        imgEl.onerror = null;
+        imgEl.src = fallbackSvg;
+      };
+      imgEl.src = localSrc;
+    }
+
+    function reportRuntimeError(msg) {
+      const banner = document.getElementById('globalErrorBanner');
+      if (!banner) return;
+      const box = banner.firstElementChild || banner;
+      box.textContent = `Aviso: ${msg}`;
+      banner.classList.remove('hidden');
+    }
+
+    window.addEventListener('error', (event) => {
+      if (event && event.message) {
+        reportRuntimeError(event.message);
+      }
+    });
+
+    window.addEventListener('unhandledrejection', (event) => {
+      const reason = event && event.reason ? (event.reason.message || String(event.reason)) : 'Error inesperado.';
+      reportRuntimeError(reason);
+    });
+
+    const TAROT_DECK = [
+      // ==================== ARCANOS MAYORES (22) ====================
+      {
+        id: 'maj-00', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: '0',
+        name: 'El Loco', keywords: 'Arrancar · Confianza · Aventura',
+        img: './cards/RWS_Tarot_00_Fool.jpg',
+        essence: 'La energía fresca del primer paso cuando todavía no tenés todas las respuestas, pero sí ganas de probar.',
+        upright: 'Arrancás algo nuevo con soltura, fe y mente abierta. Ideal para animarte a un cambio sin quedarte paralizado pensando.',
+        reversed: 'Te mandás sin mirar o dudás tanto que no arrancás. Ojo con la impulsividad o con ignorar señales obvias.',
+        symbols: 'La rosa blanca (pureza), el atadito liviano, el perrito que acompaña y el borde del barranco.',
+        tip: 'Hoy hacé ese primer paso chico que venías pateando sin exigirte perfección.'
+      },
+      {
+        id: 'maj-01', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'I',
+        name: 'El Mago', keywords: 'Activar · Recursos · Foco',
+        img: './cards/RWS_Tarot_01_Magician.jpg',
+        essence: 'Tenés las herramientas sobre la mesa y la cabeza enfocada para hacer que las cosas pasen.',
+        upright: 'Buen momento para crear, presentar ideas, negociar y mover fichas. Todo lo que necesitás ya está a tu alcance.',
+        reversed: 'Te dispersás, te vendés humo o usás tu ingenio a medias. También puede hablar de alguien poco claro.',
+        symbols: 'El símbolo del infinito, la vara alzada y los cuatro elementos (basto, copa, espada y oro) en la mesa.',
+        tip: 'Elegí una sola cosa importante hoy y metele foco total durante 30 minutos.'
+      },
+      {
+        id: 'maj-02', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'II',
+        name: 'La Suma Sacerdotisa', keywords: 'Intuición · Calma · Misterio',
+        img: './cards/RWS_Tarot_02_High_Priestess.jpg',
+        essence: 'La voz interna que avisa antes de que haya pruebas visibles; observar más y hablar menos.',
+        upright: 'Confiá en tu corazonada, tomá distancia del ruido y dejá que lo oculto se acomode solo. Respuestas en sueños o silencios.',
+        reversed: 'No escuchás lo que sentís por dentro, te dejás llevar por rumores o guardás demasiadas cosas.',
+        symbols: 'Las columnas B y J, el velo con granadas, el pergamino TORA y la luna a sus pies.',
+        tip: 'Antes de responder algo importante hoy, respirá hondo y chequeá qué te dice el cuerpo.'
+      },
+      {
+        id: 'maj-03', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'III',
+        name: 'La Emperatriz', keywords: 'Crear · Abundancia · Cuidar',
+        img: './cards/RWS_Tarot_03_Empress.jpg',
+        essence: 'Fertilidad creativa, disfrute sensorial y energía que nutre proyectos, vínculos y cuerpo.',
+        upright: 'Etapa de crecimiento, ideas que florecen, ganas de disfrutar lo rico de la vida y cuidar lo que querés.',
+        reversed: 'Te sentís trabado para crear, das de más y te vaciás, o te ponés demasiado exigente o dependiente.',
+        symbols: 'La corona de estrellas, el trigo maduro, el escudo con Venus y el bosque frondoso.',
+        tip: 'Regalate hoy algo que nutra tu cuerpo o tu lado creativo sin culpa.'
+      },
+      {
+        id: 'maj-04', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'IV',
+        name: 'El Emperador', keywords: 'Orden · Límites · Base firme',
+        img: './cards/RWS_Tarot_04_Emperor.jpg',
+        essence: 'Estructura, constancia y límites sanos para sostener lo que construís en el mundo real.',
+        upright: 'Momento de poner orden, organizar prioridades, tomar decisiones firmes y construir sobre terreno estable.',
+        reversed: 'Te ponés demasiado rígido o controlón, o al revés: te cuesta poner orden y sostener rutinas.',
+        symbols: 'El trono de piedra con cabezas de carnero, el cetro ankh y las montañas de fondo.',
+        tip: 'Poné un límite claro o armá una lista simple de tres pasos para ordenar tu día.'
+      },
+      {
+        id: 'maj-05', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'V',
+        name: 'El Sumo Sacerdote', keywords: 'Aprender · Guía · Valores',
+        img: './cards/RWS_Tarot_05_Hierophant.jpg',
+        essence: 'Sabiduría compartida, códigos comunes, mentoría y aprendizaje con sentido.',
+        upright: 'Buscá un buen consejo, estudiá algo que te sume o alineate con valores que respetás de verdad.',
+        reversed: 'Te cansan las reglas viejas o los mandatos ajenos; es hora de armar tu propio criterio.',
+        symbols: 'Las dos llaves cruzadas, la triple corona y las dos figuras que escuchan atentas.',
+        tip: 'Pedí opinión a alguien con experiencia o revisá si seguís una regla por costumbre.'
+      },
+      {
+        id: 'maj-06', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'VI',
+        name: 'Los Enamorados', keywords: 'Elegir · Conexión · Coherencia',
+        img: './cards/RWS_Tarot_06_Lovers.jpg',
+        essence: 'Más que solo romance, es elegir desde el corazón y alinear lo que hacés con lo que amás.',
+        upright: 'Vínculos que suman, química real o una decisión importante donde vale elegir con sinceridad.',
+        reversed: 'Dudas entre dos caminos, desarmonía en una relación o elegir por compromiso y no por ganas.',
+        symbols: 'El ángel sobre el sol, el árbol de la vida, el árbol del conocimiento y las dos figuras.',
+        tip: 'Fijate si tu decisión de hoy te acerca a lo que querés o solo busca quedar bien.'
+      },
+      {
+        id: 'maj-07', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'VII',
+        name: 'El Carro', keywords: 'Avanzar · Enfoque · Triunfo',
+        img: './cards/RWS_Tarot_07_Chariot.jpg',
+        essence: 'Meter quinta y avanzar con decisión manejando fuerzas distintas sin perder el volante.',
+        upright: 'Vas ganando terreno, superás trabas con actitud y avanzás firme hacia tu meta o un viaje.',
+        reversed: 'Vas a mil pero sin dirección, te chocás con frenos o te ganan los nervios.',
+        symbols: 'Las esfinges blanca y negra, las estrellas en el cielo estrellado y la estrella en la frente.',
+        tip: 'Definí tu próximo destino y no dejes que distracciones menores te saquen del carril.'
+      },
+      {
+        id: 'maj-08', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'VIII',
+        name: 'La Fuerza', keywords: 'Paciencia · Coraje · Ternura',
+        img: './cards/RWS_Tarot_08_Strength.jpg',
+        essence: 'La fuerza real no grita ni pelea: abraza, calma y transforma con paciencia y confianza.',
+        upright: 'Tenés temple, valentía tranquila y cintura emocional para bancar y resolver sin perder la calma.',
+        reversed: 'Te sentís bajoneado, sin energía o reactivo; bajá un cambio y tratate con más cariño.',
+        symbols: 'El símbolo del infinito sobre la cabeza, la guirnalda de flores y la calma ante el león.',
+        tip: 'Hoy ganás más con paciencia y amabilidad que empujando a la fuerza.'
+      },
+      {
+        id: 'maj-09', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'IX',
+        name: 'El Ermitaño', keywords: 'Pausa · Buscar · Claridad',
+        img: './cards/RWS_Tarot_09_Hermit.jpg',
+        essence: 'Apagar el ruido de afuera para encender tu propia linterna y ver qué necesitás vos.',
+        upright: 'Tiempo valioso a solas, reflexión honesta, madurez y claridad sin apuro.',
+        reversed: 'Te encerrás demasiado, te sentís solo o te negás a pedir una mano cuando hace falta.',
+        symbols: 'La linterna con la estrella de seis puntas, el bastón largo y la cumbre nevada.',
+        tip: 'Reservate un rato hoy sin pantallas ni notificaciones para escuchar tus propios pensamientos.'
+      },
+      {
+        id: 'maj-10', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'X',
+        name: 'La Rueda de la Fortuna', keywords: 'Giros · Ciclos · Suerte',
+        img: './cards/RWS_Tarot_10_Wheel_of_Fortune.jpg',
+        essence: 'La vida se mueve en ciclos: lo que hoy gira puede abrir una puerta inesperada.',
+        upright: 'Cambio de etapa, golpe de suerte, movimiento rápido y oportunidades que llegan a tiempo.',
+        reversed: 'Sentís que algo se atrasa o se repite; no pelees contra el ritmo, ajustá tu estrategia.',
+        symbols: 'La rueda central con letras y símbolos alquímicos, las esquinas con libros y figuras.',
+        tip: 'Mantenete atento a una oportunidad chica que parezca casualidad hoy.'
+      },
+      {
+        id: 'maj-11', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XI',
+        name: 'La Justicia', keywords: 'Equilibrio · Verdad · Claridad',
+        img: './cards/RWS_Tarot_11_Justice.jpg',
+        essence: 'Causa y efecto, honestidad sin filtros y poner cada cosa en su balanza justa.',
+        upright: 'Decisiones claras, acuerdos limpios, hacerse cargo de lo propio y ver la situación como es.',
+        reversed: 'Desbalance, echar culpas, demoras en trámites o juzgarte con vara injusta.',
+        symbols: 'La espada recta en la mano derecha, la balanza en la izquierda y el cortinado entre columnas.',
+        tip: 'Revisá si estás siendo justo con vos mismo tanto como con los demás.'
+      },
+      {
+        id: 'maj-12', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XII',
+        name: 'El Colgado', keywords: 'Mirar distinto · Soltar · Pausa',
+        img: './cards/RWS_Tarot_12_Hanged_Man.jpg',
+        essence: 'Cambiar el ángulo desde donde mirás cuando forzar ya no funciona.',
+        upright: 'Pausa necesaria, ver las cosas desde otro lado, soltar el control y aceptar un tiempo de espera.',
+        reversed: 'Quedarte trabado sin avanzar, hacerte mártir o resistirte a soltar algo que ya cerró.',
+        symbols: 'La postura invertida con una pierna cruzada, el halo luminoso y el árbol vivo.',
+        tip: 'Si algo no avanza hoy, probá mirarlo desde el punto de vista de la otra persona.'
+      },
+      {
+        id: 'maj-13', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XIII',
+        name: 'La Muerte', keywords: 'Transformar · Cerrar · Renacer',
+        img: './cards/RWS_Tarot_13_Death.jpg',
+        essence: 'Un cierre profundo que limpia el terreno para que nazca algo nuevo y auténtico.',
+        upright: 'Fin de una etapa, etapa de transformación real, soltar piel vieja para empezar renovado.',
+        reversed: 'Aferrarte a algo que ya cumplió su ciclo o sentir miedo ante un cambio inevitable.',
+        symbols: 'El jinete con armadura oscura, la bandera con la rosa blanca y el sol saliendo entre torres.',
+        tip: 'Soltá hoy un hábito, pensamiento o pendiente que ya no va más con quien sos.'
+      },
+      {
+        id: 'maj-14', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XIV',
+        name: 'La Templanza', keywords: 'Armonía · Equilibrio · Fluir',
+        img: './cards/RWS_Tarot_14_Temperance.jpg',
+        essence: 'Mezclar ingredientes opuestos con paciencia hasta lograr una calma que sana.',
+        upright: 'Equilibrio emocional, buena comunicación, paciencia que rinde frutos y paz mental.',
+        reversed: 'Irte a los extremos, ansiedad, falta de armonía o apurarte antes de tiempo.',
+        symbols: 'El agua pasando entre las dos copas, el triángulo dentro del cuadrado y el sendero hacia la luz.',
+        tip: 'Buscá el punto medio hoy: ni todo o nada, ni apuro sin pausa.'
+      },
+      {
+        id: 'maj-15', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XV',
+        name: 'El Diablo', keywords: 'Apego · Deseo · Sombra',
+        img: './cards/RWS_Tarot_15_Devil.jpg',
+        essence: 'Ver dónde te enganchás por hábito, deseo intenso o miedo, y darte cuenta de que podés soltar.',
+        upright: 'Deseo fuerte, dinámicas intensas, apego a lo material o rutinas que te atan más de lo que creés.',
+        reversed: 'Cortar cadenas, darte cuenta de un patrón, recuperar libertad y bajarle el volumen a la culpa.',
+        symbols: 'La figura central, las cadenas flojas en el cuello de las figuras y la antorcha invertida.',
+        tip: 'Identificá qué hábito o pensamiento te está tironeando hoy y elegí con conciencia.'
+      },
+      {
+        id: 'maj-16', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XVI',
+        name: 'La Torre', keywords: 'Sacudón · Verdad · Liberación',
+        img: './cards/RWS_Tarot_16_Tower.jpg',
+        essence: 'Un golpe de realidad o cambio brusco que tira abajo lo falso para que respire la verdad.',
+        upright: 'Cambio repentino, caída de una ilusión o estructura frágil, revelación que libera aunque duela.',
+        reversed: 'Evitar un choque inevitable, tormenta interna o resistencia a aceptar que algo cambió.',
+        symbols: 'El rayo golpeando la corona de la torre, las llamas y las figuras cayendo al vacío.',
+        tip: 'Si hoy algo se desarma, fijate qué mentira o presión innecesaria se estaba cayendo con eso.'
+      },
+      {
+        id: 'maj-17', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XVII',
+        name: 'La Estrella', keywords: 'Esperanza · Fe · Inspiración',
+        img: './cards/RWS_Tarot_17_Star.jpg',
+        essence: 'Luz limpia después de la tormenta: calma, ilusión sana y reconexión con tu esencia.',
+        upright: 'Esperanza renovada, inspiración, alivio emocional, autenticidad y buena vibra a futuro.',
+        reversed: 'Baja de ánimo, desconfianza o perder un poco el entusiasmo; volvé a lo simple.',
+        symbols: 'La estrella grande rodeada de siete estrellas más chicas, las dos jarras y el agua.',
+        tip: 'Anotá hoy una meta que te ilusione de verdad, sin juzgarla.'
+      },
+      {
+        id: 'maj-18', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XVIII',
+        name: 'La Luna', keywords: 'Intuición · Sueños · Incertidumbre',
+        img: './cards/RWS_Tarot_18_Moon.jpg',
+        essence: 'Caminar de noche con intuición: todo parece borroso hasta que entendés lo que sentís.',
+        upright: 'Emociones a flor de piel, sueños intensos, falta de certezas; no te apures a sacar conclusiones.',
+        reversed: 'Se despeja la niebla, entendés un miedo viejo o sale a la luz algo que estaba confuso.',
+        symbols: 'La luna con rostro y rayos, el perro y el lobo, el sendero y el cangrejo saliendo del agua.',
+        tip: 'No tomes decisiones definitivas en medio de la duda: esperá a tener más claridad.'
+      },
+      {
+        id: 'maj-19', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XIX',
+        name: 'El Sol', keywords: 'Alegría · Éxito · Claridad',
+        img: './cards/RWS_Tarot_19_Sun.jpg',
+        essence: 'Día despejado, entusiasmo genuino, confianza y ganas de compartir lo bueno.',
+        upright: 'Logros, claridad total, buen ánimo, vitalidad y momentos luminosos con otras personas.',
+        reversed: 'La alegría está ahí pero un poco nublada, retraso leve o exceso de expectativa.',
+        symbols: 'El sol radiante, la figura montada sin riendas sobre el caballo blanco y los girasoles.',
+        tip: 'Compartí algo que te haga bien hoy y celebrá un avance por más chico que parezca.'
+      },
+      {
+        id: 'maj-20', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XX',
+        name: 'El Juicio', keywords: 'Despertar · Vocación · Perdón',
+        img: './cards/RWS_Tarot_20_Judgement.jpg',
+        essence: 'Escuchar el llamado a dar el siguiente salto con perdón, balance y claridad.',
+        upright: 'Despertar personal, claridad sobre tu camino, cierre de culpas y respuesta a un llamado.',
+        reversed: 'Darte palo de más, dudar del cambio o no animarte a responder a lo que ya sabés.',
+        symbols: 'El ángel tocando la trompeta con la cruz y las figuras alzando los brazos.',
+        tip: 'Perdonate un error pasado y quedate solo con el aprendizaje que te dejó.'
+      },
+      {
+        id: 'maj-21', arcana: 'major', suit: 'major', suitName: 'Arcano Mayor', numeral: 'XXI',
+        name: 'El Mundo', keywords: 'Cierre · Plenitud · Expansión',
+        img: './cards/RWS_Tarot_21_World.jpg',
+        essence: 'Completar el círculo con orgullo y sentir que encajaron las piezas de una etapa.',
+        upright: 'Cierre exitoso, sensación de plenitud, logro de objetivos, viajes o abrirte al mundo.',
+        reversed: 'Falta un último toque para cerrar, sensación de algo pendiente o demora en el final.',
+        symbols: 'La corona de laurel ovalada, la figura danzante con las varas y los cuatro seres en las esquinas.',
+        tip: 'Cerrá un pendiente abierto hoy para liberar espacio mental.'
+      },
+
+      // ==================== BASTOS / FUEGO (14) ====================
+      {
+        id: 'wand-01', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'As',
+        name: 'As de Bastos', keywords: 'Chispa · Arranque · Ganazas',
+        img: './cards/Wands01.jpg',
+        essence: 'La primera chispa de fuego y entusiasmo para empezar algo con ganas.',
+        upright: 'Idea potente, impulso nuevo, iniciativa y energía para mover un proyecto.',
+        reversed: 'Falta de nafta, demora para empezar o ganas que se enfrían rápido.',
+        symbols: 'La mano que sale de la nube sosteniendo un basto con brotes verdes y hojas cayendo.',
+        tip: 'Aprovechá el impulso del momento y hacé algo concreto antes de pensarlo demasiado.'
+      },
+      {
+        id: 'wand-02', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'II',
+        name: 'Dos de Bastos', keywords: 'Plan · Mirar lejos · Decisión',
+        img: './cards/Wands02.jpg',
+        essence: 'Mirar el mapa completo y planificar el próximo paso antes de salir a conquistar.',
+        upright: 'Planificación, visión a futuro, elegir rumbo y animarte a expandirte.',
+        reversed: 'Dudas para dar el salto, quedarte en lo seguro o falta de plan claro.',
+        symbols: 'El globo terráqueo en la mano, el basto sujetado y la mirada hacia el mar.',
+        tip: 'Definí cuál es tu objetivo a mediano plazo y anotá el primer paso.'
+      },
+      {
+        id: 'wand-03', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'III',
+        name: 'Tres de Bastos', keywords: 'Expansión · Avance · Horizonte',
+        img: './cards/Wands03.jpg',
+        essence: 'Lo que sembraste empieza a caminar y abrís la mirada a nuevos horizontes.',
+        upright: 'Progreso firme, primeros resultados, expansión, viajes o alianzas que crecen.',
+        reversed: 'Demoras en ver frutos, cambios de planes o esperar más de lo que hoy llega.',
+        symbols: 'Los tres bastos firmes, la figura de espaldas mirando los barcos en el mar.',
+        tip: 'Revisá qué ya está caminando bien y apoyate en eso para crecer.'
+      },
+      {
+        id: 'wand-04', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'IV',
+        name: 'Cuatro de Bastos', keywords: 'Festejo · Hogar · Buena vibra',
+        img: './cards/Wands04.jpg',
+        essence: 'Celebrar un logro, sentirse en casa y compartir alegría con gente que suma.',
+        upright: 'Buen clima, celebración, estabilidad en el hogar o cierre de una etapa feliz.',
+        reversed: 'Festejo que se corre de fecha, tensión en casa o ganas de armar más base.',
+        symbols: 'Los cuatro bastos con guirnalda de flores y frutas, y personas celebrando.',
+        tip: 'Compartí un buen momento hoy con alguien de confianza.'
+      },
+      {
+        id: 'wand-05', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'V',
+        name: 'Cinco de Bastos', keywords: 'Choque · Debate · Competencia',
+        img: './cards/Wands05.jpg',
+        essence: 'Muchos estímulos o voces al mismo tiempo: fricción que puede ser debate o lío.',
+        upright: 'Discusión, competencia, choque de opiniones o caos creativo; defendé tu punto.',
+        reversed: 'Baja la espuma, se calman las discusiones o evitás un conflicto innecesario.',
+        symbols: 'Cinco jóvenes moviendo bastos en distintas direcciones en un espacio abierto.',
+        tip: 'No entres en todas las peleas: elegí dónde vale la pena poner tu energía.'
+      },
+      {
+        id: 'wand-06', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'VI',
+        name: 'Seis de Bastos', keywords: 'Logro · Reconocimiento · Orgullo',
+        img: './cards/Wands06.jpg',
+        essence: 'Que te reconozcan el esfuerzo y sentir orgullo sano por lo que avanzaste.',
+        upright: 'Victoria, aplausos, buen momento profesional o personal y confianza en alto.',
+        reversed: 'Sentir que no te valoran, ego sensible o bajón después de un pico alto.',
+        symbols: 'La corona de laurel en el basto y en la cabeza del jinete, acompañado por la gente.',
+        tip: 'Reconocete vos mismo un esfuerzo que hiciste bien últimamente.'
+      },
+      {
+        id: 'wand-07', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'VII',
+        name: 'Siete de Bastos', keywords: 'Defender · Aguantar · Firmeza',
+        img: './cards/Wands07.jpg',
+        essence: 'Mantenerte firme cuando otros empujan o cuestionan tu espacio.',
+        upright: 'Coraje para defender lo tuyo, postura firme y ventaja si mantenés el foco.',
+        reversed: 'Cansancio de estar siempre a la defensiva o ganas de aflojar la guardia.',
+        symbols: 'El personaje en lo alto defendiendo su posición frente a seis bastos que suben.',
+        tip: 'Decí que no a lo que te invade hoy, sin ponerte agresivo.'
+      },
+      {
+        id: 'wand-08', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'VIII',
+        name: 'Ocho de Bastos', keywords: 'Velocidad · Noticias · Flujo',
+        img: './cards/Wands08.jpg',
+        essence: 'Todo se acelera: mensajes, movidas, viajes o respuestas que llegan rápido.',
+        upright: 'Ritmo ágil, noticias que caen, avances rápidos y claridad en el movimiento.',
+        reversed: 'Retrasos, mensajes cruzados o apuro que hace tropezar.',
+        symbols: 'Ocho bastos volando en diagonal en un cielo despejado sobre un paisaje verde.',
+        tip: 'Respondé ese mensaje pendiente o avanzá con lo que ya está listo.'
+      },
+      {
+        id: 'wand-09', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'IX',
+        name: 'Nueve de Bastos', keywords: 'Resistencia · Cuidado · Último tramo',
+        img: './cards/Wands09.jpg',
+        essence: 'Ya pasaste varias, estás un poco cansado, pero seguís de pie y atento.',
+        upright: 'Resiliencia, cautela inteligente y fuerza para bancar el tramo final.',
+        reversed: 'Agotamiento mental, desconfianza excesiva o no soltar una guardia vieja.',
+        symbols: 'La venda en la cabeza, la postura alerta y los ocho bastos detrás formando cerco.',
+        tip: 'Cuidá tu energía hoy: no gastes fuerzas en escenarios que todavía no pasaron.'
+      },
+      {
+        id: 'wand-10', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'X',
+        name: 'Diez de Bastos', keywords: 'Carga · Esfuerzo · Soltar peso',
+        img: './cards/Wands10.jpg',
+        essence: 'Llevar demasiados paquetes encima: mucho trabajo y poca liviandad.',
+        upright: 'Sobrecarga, muchas responsabilidades juntas o esfuerzo pesado cerca de terminar.',
+        reversed: 'Soltar lo que no te toca, delegar o descargar presión de encima.',
+        symbols: 'La figura cargando diez bastos pesados rumbo a un pueblo cercano.',
+        tip: 'Elegí qué podés postergar, delegar o soltar hoy para respirar mejor.'
+      },
+      {
+        id: 'wand-11', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'Sota',
+        name: 'Sota de Bastos', keywords: 'Curiosidad · Chispa · Novedad',
+        img: './cards/Wands11.jpg',
+        essence: 'Ganas de probar cosas nuevas, aprender algo distinto o recibir una buena noticia.',
+        upright: 'Espíritu curioso, entusiasmo, mensaje motivador o arranque lúdico.',
+        reversed: 'Falta de constancia, aburrimiento rápido o idea sin aterrizar.',
+        symbols: 'El joven observando su basto con salamandras bordadas en la túnica.',
+        tip: 'Curioseá un tema nuevo hoy sin juzgarte si después lo dejás.'
+      },
+      {
+        id: 'wand-12', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'Caballero',
+        name: 'Caballero de Bastos', keywords: 'Pasión · Impulso · Movimiento',
+        img: './cards/Wands12.jpg',
+        essence: 'Entrar a full con pasión y valentía, aunque a veces sin mirar el freno.',
+        upright: 'Acción decidida, carisma, aventura, movimiento rápido y ganas de ir por todo.',
+        reversed: 'Impulsividad, cambios de humor bruscos o arrancar y dejar a medias.',
+        symbols: 'El caballo encabritado, el penacho rojo y las pirámides a lo lejos.',
+        tip: 'Canalizá tu entusiasmo hoy en una acción concreta y medí un toque el ritmo.'
+      },
+      {
+        id: 'wand-13', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'Reina',
+        name: 'Reina de Bastos', keywords: 'Carisma · Seguridad · Creatividad',
+        img: './cards/Wands13.jpg',
+        essence: 'Seguridad propia, calidez que contagia y creatividad sin pedir permiso.',
+        upright: 'Confianza, independencia, liderazgo natural, pasión y buena presencia.',
+        reversed: 'Celos, reacción impulsiva o dudar de tu propio brillo.',
+        symbols: 'El trono con leones, el girasol, el basto florecido y el gato negro a sus pies.',
+        tip: 'Hablá y actuá hoy desde tu seguridad natural, sin achicarte.'
+      },
+      {
+        id: 'wand-14', arcana: 'minor', suit: 'wands', suitName: 'Bastos · Fuego', numeral: 'Rey',
+        name: 'Rey de Bastos', keywords: 'Visión · Liderazgo · Empuje',
+        img: './cards/Wands14.jpg',
+        essence: 'Liderar con visión grande, coraje y convicción para impulsar proyectos.',
+        upright: 'Autoridad carismática, visión de futuro, emprendimiento y decisión firme.',
+        reversed: 'Impaciencia, querer mandar a toda costa o exigir de más.',
+        symbols: 'El trono decorado con leones y salamandras y el basto en alto.',
+        tip: 'Tomá la iniciativa en un tema pendiente y marcá el rumbo con claridad.'
+      },
+
+      // ==================== COPAS / AGUA (14) ====================
+      {
+        id: 'cups-01', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'As',
+        name: 'As de Copas', keywords: 'Amor · Emoción · Apertura',
+        img: './cards/Cups01.jpg',
+        essence: 'El corazón abierto, emoción genuina y ganas de conectar o sentir más.',
+        upright: 'Nuevo cariño, emoción linda, empatía, inspiración o empezar algo con amor.',
+        reversed: 'Corazón en pausa, tristeza o dificultad para expresar lo que sentís.',
+        symbols: 'La copa desbordando agua con cinco chorros, la hostia con la paloma y los nenúfares.',
+        tip: 'Mostrá un gesto afectuoso real hoy, aunque sea chiquito.'
+      },
+      {
+        id: 'cups-02', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'II',
+        name: 'Dos de Copas', keywords: 'Conexión · Ida y vuelta · Acuerdo',
+        img: './cards/Cups02.jpg',
+        essence: 'Encuentro parejo, onda mutua y vínculo donde ambos suman.',
+        upright: 'Buena química, pareja o amistad que fluye, reconciliación o acuerdo sincero.',
+        reversed: 'Desencuentro, falta de ida y vuelta o distancia emocional.',
+        symbols: 'Dos figuras brindando con copas, el caduceo con el león alado encima.',
+        tip: 'Buscá un diálogo sincero y parejo con alguien importante para vos.'
+      },
+      {
+        id: 'cups-03', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'III',
+        name: 'Tres de Copas', keywords: 'Amistad · Encuentro · Celebre',
+        img: './cards/Cups03.jpg',
+        essence: 'Compartir risas, red de amigos y celebrar lo lindo de estar acompañado.',
+        upright: 'Amistades, juntada, apoyo grupal, alegría compartida y festejo.',
+        reversed: 'Excesos, sentirse afuera del grupo o enredos en charlas de terceros.',
+        symbols: 'Tres mujeres alzando sus copas rodeadas de flores, frutas y calabazas.',
+        tip: 'Mandale un mensaje a esa amistad que tenés colgada y armá un plan simple.'
+      },
+      {
+        id: 'cups-04', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'IV',
+        name: 'Cuatro de Copas', keywords: 'Hastío · Mirar adentro · Pausa',
+        img: './cards/Cups04.jpg',
+        essence: 'Estar medio desganado o metido en la cabeza y no ver lo que se ofrece al lado.',
+        upright: 'Aburrimiento, apatía momentánea o necesidad de revisar qué te motiva de verdad.',
+        reversed: 'Salir del bajón, animarte a una propuesta o volver a tener ganas.',
+        symbols: 'La figura sentada bajo un árbol con tres copas delante y una cuarta extendida desde una nube.',
+        tip: 'Levantá la mirada de la pantalla o de la queja y fijate qué oportunidad tenés cerca.'
+      },
+      {
+        id: 'cups-05', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'V',
+        name: 'Cinco de Copas', keywords: 'Duelo · Pérdida · Mirar lo que queda',
+        img: './cards/Cups05.jpg',
+        essence: 'Sentir pena por algo que se perdió, sin notar todavía lo que sigue en pie.',
+        upright: 'Tristeza, decepción o duelo; es válido sentirlo, pero no te quedes solo ahí.',
+        reversed: 'Empezar a sanar, aceptar lo que pasó y ver lo que sí tenés a favor.',
+        symbols: 'La capa oscura, tres copas volcadas, dos copas de pie atrás y un puente sobre el río.',
+        tip: 'Date permiso para estar triste si lo necesitás, y después mirá qué sí sigue vivo.'
+      },
+      {
+        id: 'cups-06', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'VI',
+        name: 'Seis de Copas', keywords: 'Recuerdos · Ternura · Niñez',
+        img: './cards/Cups06.jpg',
+        essence: 'Nostalgia linda, recuerdos de antes, ternura simple y dar sin esperar nada a cambio.',
+        upright: 'Reencuentro con el pasado, recuerdos dulces, inocencia y generosidad.',
+        reversed: 'Quedarte pegado a épocas pasadas o romantizar lo que ya no encaja hoy.',
+        symbols: 'Seis copas con flores blancas, las dos figuras infantiles y las casas del pueblo.',
+        tip: 'Traé a tu presente una cualidad linda de tu etapa más simple o espontánea.'
+      },
+      {
+        id: 'cups-07', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'VII',
+        name: 'Siete de Copas', keywords: 'Fantasía · Opciones · Filtro',
+        img: './cards/Cups07.jpg',
+        essence: 'Muchas ideas, sueños o tentaciones a la vez: toca filtrar qué es real.',
+        upright: 'Imaginación a full o muchas opciones; no todo lo que brilla es concreto.',
+        reversed: 'Bajar a tierra, elegir una opción clara y dejar atrás ilusiones.',
+        symbols: 'Siete copas entre nubes que contienen serpiente, corona, joya, rostro, castillo, laurel y dragón.',
+        tip: 'Elegí solo una opción realista para hoy y dejá el resto para otro momento.'
+      },
+      {
+        id: 'cups-08', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'VIII',
+        name: 'Ocho de Copas', keywords: 'Irse · Buscar sentido · Soltar',
+        img: './cards/Cups08.jpg',
+        essence: 'Alejarte de algo que ya no te llena emocionalmente para buscar algo más verdadero.',
+        upright: 'Cerrar una etapa afectiva o rutina vacía y caminar hacia lo que te dé más sentido.',
+        reversed: 'Dudar en irte, quedarte por miedo o irte sin pensar.',
+        symbols: 'La figura caminando con bastón bajo la luna y el cielo nocturno, dejando ocho copas.',
+        tip: 'Preguntate qué lugar o vínculo ya no te nutre y qué necesitás buscar.'
+      },
+      {
+        id: 'cups-09', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'IX',
+        name: 'Nueve de Copas', keywords: 'Disfrute · Deseo · Satisfacción',
+        img: './cards/Cups09.jpg',
+        essence: 'Sentirse satisfecho, agradecido y cómodo con lo que se logró.',
+        upright: 'Deseo que se cumple, buen ánimo, disfrute personal y sensación de bienestar.',
+        reversed: 'Sentir vacío pese a tener cosas o pasarte de rosca con algún gusto.',
+        symbols: 'La figura sonriente sentada en un banco con las nueve copas ordenadas atrás.',
+        tip: 'Agradecé hoy algo concreto que ya tenés y disfrutalo sin apuro.'
+      },
+      {
+        id: 'cups-10', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'X',
+        name: 'Diez de Copas', keywords: 'Armonía · Familia · Felicidad',
+        img: './cards/Cups10.jpg',
+        essence: 'Paz afectiva, hogar unido y alegría compartida con quienes querés.',
+        upright: 'Armonía familiar o de grupo, afecto estable y momentos muy lindos en casa.',
+        reversed: 'Discusiones en casa, desconexión o esperar una perfección que no existe.',
+        symbols: 'El arcoíris con diez copas, la pareja abrazada y dos chicos jugando junto a la casa.',
+        tip: 'Sumá un gesto de unión o escucha en tu casa o grupo cercano.'
+      },
+      {
+        id: 'cups-11', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'Sota',
+        name: 'Sota de Copas', keywords: 'Sensibilidad · Ternura · Creatividad',
+        img: './cards/Cups11.jpg',
+        essence: 'Sensibilidad fresca, mensaje lindo o ganas de expresar emociones con arte.',
+        upright: 'Ternura, intuición tierna, propuesta afectiva o inspiración artística.',
+        reversed: 'Estar muy sensible o susceptible, o escaparte en fantasías.',
+        symbols: 'El joven mirando un pez que asoma desde la copa junto al mar.',
+        tip: 'Expresá lo que sentís con palabras simples y sinceras.'
+      },
+      {
+        id: 'cups-12', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'Caballero',
+        name: 'Caballero de Copas', keywords: 'Romance · Idealismo · Propuesta',
+        img: './cards/Cups12.jpg',
+        essence: 'Ir tras lo que te mueve el corazón con encanto, sensibilidad y ganas de conectar.',
+        upright: 'Invitación romántica o creativa, diplomacia, cariño y empatía.',
+        reversed: 'Promesas lindas pero poco firmes, volatilidad o idealizar de más.',
+        symbols: 'El jinete avanzando despacio con su copa y las alas en el casco y las sandalias.',
+        tip: 'Acompañá tus palabras lindas con hechos concretos hoy.'
+      },
+      {
+        id: 'cups-13', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'Reina',
+        name: 'Reina de Copas', keywords: 'Empatía · Intuición · Contención',
+        img: './cards/Cups13.jpg',
+        essence: 'Escucha profunda, empatía natural y sabiduría emocional sin perder el eje.',
+        upright: 'Comprensión, intuición afinada, cuidado afectivo y calma sensible.',
+        reversed: 'Cargarte problemas que no son tuyos o dejarte llevar por la marea emocional.',
+        symbols: 'La reina sentada junto al agua sosteniendo una copa adornada y cerrada.',
+        tip: 'Escuchá con empatía hoy, pero cuidá de no absorber culpas ajenas.'
+      },
+      {
+        id: 'cups-14', arcana: 'minor', suit: 'cups', suitName: 'Copas · Agua', numeral: 'Rey',
+        name: 'Rey de Copas', keywords: 'Serenidad · Madurez · Apoyo',
+        img: './cards/Cups14.jpg',
+        essence: 'Dominar las emociones con calma madura y acompañar con empatía y criterio.',
+        upright: 'Equilibrio emocional, buen consejo, templanza y apoyo maduro.',
+        reversed: 'Guardarte todo por dentro, frialdad o cambios de ánimo.',
+        symbols: 'El rey en su trono sobre el mar con el barco y el pez colgando al fondo.',
+        tip: 'Respondé desde la calma y el criterio antes que desde el impulso.'
+      },
+
+      // ==================== ESPADAS / AIRE (14) ====================
+      {
+        id: 'swd-01', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'As',
+        name: 'As de Espadas', keywords: 'Claridad · Verdad · Corte',
+        img: './cards/Swords01.jpg',
+        essence: 'Un clic mental que aclara todo y corta de raíz la confusión.',
+        upright: 'Idea clara, verdad dicha de frente, decisión firme y lucidez.',
+        reversed: 'Confusión, hablar sin filtro y lastimar o sacar conclusiones apuradas.',
+        symbols: 'La espada recta con la corona y la guirnalda de olivo y palma sobre las montañas.',
+        tip: 'Decí una verdad necesaria hoy con claridad, pero sin herir por herir.'
+      },
+      {
+        id: 'swd-02', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'II',
+        name: 'Dos de Espadas', keywords: 'Duda · Tregua · Cierre',
+        img: './cards/Swords02.jpg',
+        essence: 'Estar en el medio de dos opciones sin querer mirar una parte del panorama.',
+        upright: 'Indecisión, pausa tensa o evitar ver un tema incómodo por ahora.',
+        reversed: 'Se destraba la duda, sale a la luz lo que evitabas o tenés que decidir.',
+        symbols: 'La figura con los ojos vendados sosteniendo dos espadas cruzadas frente al mar y la luna.',
+        tip: 'Sacate la venda y anotá los pros y contras reales de cada opción.'
+      },
+      {
+        id: 'swd-03', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'III',
+        name: 'Tres de Espadas', keywords: 'Dolor · Desilusión · Desahogo',
+        img: './cards/Swords03.jpg',
+        essence: 'Un golpe emocional o verdad que duele, pero que sirve para liberar y sanar.',
+        upright: 'Tristeza, desengaño o angustia; llorar o hablarlo ayuda a alivianar.',
+        reversed: 'Alivio, empezar a sanar, perdonar o tapar un dolor para no sentirlo.',
+        symbols: 'El corazón atravesado por tres espadas bajo nubes y lluvia.',
+        tip: 'Hablá con alguien de confianza o escribí lo que te duele para sacarlo de adentro.'
+      },
+      {
+        id: 'swd-04', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'IV',
+        name: 'Cuatro de Espadas', keywords: 'Descanso · Silencio · Recarga',
+        img: './cards/Swords04.jpg',
+        essence: 'Bajar la cabeza, parar la pelota y darle descanso real a la mente.',
+        upright: 'Pausa reparadora, descanso, desconexión y recuperar energía antes de actuar.',
+        reversed: 'Cansancio acumulado por no parar, insomnio o vuelta pausada al ruedo.',
+        symbols: 'La figura recostada en oración con tres espadas en el muro y una debajo.',
+        tip: 'Hoy no resuelvas todo: dormí bien o tomá un descanso de verdad.'
+      },
+      {
+        id: 'swd-05', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'V',
+        name: 'Cinco de Espadas', keywords: 'Pelea · Ego · Desgaste',
+        img: './cards/Swords05.jpg',
+        essence: 'Cuando ganar una discusión deja un sabor amargo o rompe un vínculo.',
+        upright: 'Discusión picante, tensión de egos o ganar algo pero perdiendo armonía.',
+        reversed: 'Bajar el tono, hacer las paces, soltar el orgullo o salir de un lío.',
+        symbols: 'La figura con gesto burlón cargando espadas mientras otras dos quedan en el suelo.',
+        tip: 'Preguntate hoy: ¿preferís tener razón o tener paz en este vínculo?'
+      },
+      {
+        id: 'swd-06', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'VI',
+        name: 'Seis de Espadas', keywords: 'Cambio · Alejarse · Calma',
+        img: './cards/Swords06.jpg',
+        essence: 'Cruzar a aguas más tranquilas dejando atrás una etapa agitada.',
+        upright: 'Alejarte de un quilombo, transición hacia más calma, viaje o cambio de aire.',
+        reversed: 'Cuesta soltar lo de atrás, demora en moverse o volver a un tema viejo.',
+        symbols: 'El bote cruzando el agua con seis espadas clavadas y dos pasajeros.',
+        tip: 'Dá un paso concreto para alejarte de lo que hoy te genera tensión.'
+      },
+      {
+        id: 'swd-07', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'VII',
+        name: 'Siete de Espadas', keywords: 'Estrategia · Reserva · Cuidado',
+        img: './cards/Swords07.jpg',
+        essence: 'Moverse con astucia o cautela; ojo con lo que se oculta o se dice a medias.',
+        upright: 'Estrategia propia, cuidar información o alerta ante algo poco transparente.',
+        reversed: 'Sale la verdad a la luz, cambiás de táctica o admitís un error.',
+        symbols: 'La figura alejándose con cinco espadas y dejando dos atrás frente al campamento.',
+        tip: 'Chequeá bien los datos antes de confiar o comprometerte hoy.'
+      },
+      {
+        id: 'swd-08', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'VIII',
+        name: 'Ocho de Espadas', keywords: 'Traba mental · Miedo · Salida',
+        img: './cards/Swords08.jpg',
+        essence: 'Sentirte atrapado, pero notar que muchas de las trabas están en tu cabeza.',
+        upright: 'Bloqueo por miedo o creencias limitantes; hay más margen del que creés.',
+        reversed: 'Destrabar la mente, animarte a moverte y recuperar tu margen de acción.',
+        symbols: 'La figura atada y vendada rodeada por ocho espadas en el barro.',
+        tip: 'Escribí qué parte del problema es real y cuál es solo miedo imaginado.'
+      },
+      {
+        id: 'swd-09', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'IX',
+        name: 'Nueve de Espadas', keywords: 'Preocupación · Noche · Alivio',
+        img: './cards/Swords09.jpg',
+        essence: 'Cuando la cabeza da vueltas de más a la noche y agranda los problemas.',
+        upright: 'Ansiedad, preocupación excesiva o mal dormir; no te creas todo lo que pensás de noche.',
+        reversed: 'Baja la ansiedad, pedís ayuda o ves el tema con más calma.',
+        symbols: 'La persona sentada en la cama cubriéndose el rostro con nueve espadas en la pared.',
+        tip: 'Si hoy te sobrepasa la cabeza, compartí lo que sentís o anotá lo que sí podés resolver.'
+      },
+      {
+        id: 'swd-10', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'X',
+        name: 'Diez de Espadas', keywords: 'Final · Tocar fondo · Amanecer',
+        img: './cards/Swords10.jpg',
+        essence: 'Un cierre duro que marca el final de una etapa; ya no queda más por caer.',
+        upright: 'Final definitivo de algo difícil y comienzo de un nuevo amanecer.',
+        reversed: 'Recuperarte después de un golpe, resistir un cierre o empezar de nuevo.',
+        symbols: 'La figura tendida con diez espadas y el horizonte iluminándose al fondo.',
+        tip: 'Aceptá el cierre de lo que terminó para poder abrir espacio a lo nuevo.'
+      },
+      {
+        id: 'swd-11', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'Sota',
+        name: 'Sota de Espadas', keywords: 'Curiosidad · Pregunta · Agudeza',
+        img: './cards/Swords11.jpg',
+        essence: 'Mente rápida, ganas de investigar, preguntar y entender cómo funciona todo.',
+        upright: 'Curiosidad mental, buena observación, franqueza y ganas de aprender.',
+        reversed: 'Hablar de más, chismes o comentarios filosos sin medir.',
+        symbols: 'El joven sosteniendo la espada entre nubes y ráfagas de viento.',
+        tip: 'Hacé la pregunta que necesitás para aclarar dudas, con respeto.'
+      },
+      {
+        id: 'swd-12', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'Caballero',
+        name: 'Caballero de Espadas', keywords: 'Rapidez · Directo · Ímpetu',
+        img: './cards/Swords12.jpg',
+        essence: 'Ir directo al grano y actuar rápido con la mente afilada.',
+        upright: 'Decisión rápida, comunicación directa, foco y avance sin vueltas.',
+        reversed: 'Apuro imprudente, palabras duras o ir sin mirar consecuencias.',
+        symbols: 'El jinete a toda marcha con la espada en alto y las nubes agitadas.',
+        tip: 'Sé claro y directo hoy, pero frená un segundo antes de hablar en caliente.'
+      },
+      {
+        id: 'swd-13', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'Reina',
+        name: 'Reina de Espadas', keywords: 'Lucidez · Límites · Sinceridad',
+        img: './cards/Swords13.jpg',
+        essence: 'Ver con claridad, poner límites firmes y hablar con honestidad madura.',
+        upright: 'Claridad mental, independencia, límites sanos y palabra sincera.',
+        reversed: 'Ponerse demasiado fría o cortante, o juzgar duro.',
+        symbols: 'La reina sentada con la espada vertical, la mano extendida y las nubes tras el trono.',
+        tip: 'Poné un límite claro con serenidad y sin justificarte de más.'
+      },
+      {
+        id: 'swd-14', arcana: 'minor', suit: 'swords', suitName: 'Espadas · Aire', numeral: 'Rey',
+        name: 'Rey de Espadas', keywords: 'Estrategia · Razón · Criterio',
+        img: './cards/Swords14.jpg',
+        essence: 'Pensar con cabeza fría, ética y estrategia para resolver asuntos complejos.',
+        upright: 'Criterio claro, objetividad, buena planificación y comunicación firme.',
+        reversed: 'Rigidez mental, frialdad o imponer lógica sin escuchar emociones.',
+        symbols: 'El rey en su trono con la espada recta y mariposas en el respaldo.',
+        tip: 'Ordená tus ideas con lógica hoy antes de tomar una decisión importante.'
+      },
+
+      // ==================== OROS / TIERRA (14) ====================
+      {
+        id: 'pen-01', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'As',
+        name: 'As de Oros', keywords: 'Oportunidad · Plata · Base real',
+        img: './cards/Pents01.jpg',
+        essence: 'Una semilla concreta de prosperidad, trabajo, estudio o bienestar físico.',
+        upright: 'Buena oportunidad material, arranque sólido, recurso real y estabilidad.',
+        reversed: 'Demora en lo económico, gasto poco pensado o falta de foco práctico.',
+        symbols: 'La mano sosteniendo el oro con flores blancas y el sendero hacia las montañas.',
+        tip: 'Cuidá un recurso concreto hoy (tiempo, plata o energía) y apostá a lo firme.'
+      },
+      {
+        id: 'pen-02', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'II',
+        name: 'Dos de Oros', keywords: 'Equilibrio · Malabares · Cintura',
+        img: './cards/Pents02.jpg',
+        essence: 'Hacer malabares con varias cosas a la vez manteniendo el ritmo y la cintura.',
+        upright: 'Adaptabilidad, organizar tiempos o plata con soltura y buen humor.',
+        reversed: 'Desorden, sobrecarga de pendientes o desajuste en tus gastos.',
+        symbols: 'La figura danzando con dos oros unidos por un lazo infinito y barcos en el agua.',
+        tip: 'Reacomodá tus prioridades del día sin culparte por cambiar el plan.'
+      },
+      {
+        id: 'pen-03', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'III',
+        name: 'Tres de Oros', keywords: 'Equipo · Oficio · Construcción',
+        img: './cards/Pents03.jpg',
+        essence: 'Construir algo bien hecho sumando talentos, aprendizaje y trabajo en equipo.',
+        upright: 'Buen trabajo grupal, aprender un oficio, reconocimiento por tu esfuerzo y calidad.',
+        reversed: 'Falta de sintonía en equipo, desgano o hacer las cosas a las apuradas.',
+        symbols: 'El artesano trabajando con los tres oros y conversando con dos figuras.',
+        tip: 'Pedí ayuda o compartí ideas con alguien que sume a lo que estás armando.'
+      },
+      {
+        id: 'pen-04', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'IV',
+        name: 'Cuatro de Oros', keywords: 'Ahorro · Cuidar · Control',
+        img: './cards/Pents04.jpg',
+        essence: 'Guardar y cuidar lo que tenés; lindo para ahorrar, pero ojo con apretar de más.',
+        upright: 'Cuidar la plata, estabilidad, resguardo y prudencia material.',
+        reversed: 'Soltar un miedo a perder, aflojar el bolsillo o dejar de retener por control.',
+        symbols: 'La figura sentada abrazando un oro, con uno en la cabeza y dos bajo los pies.',
+        tip: 'Revisá tus gastos y fijate si cuidás tu plata por estrategia o por miedo.'
+      },
+      {
+        id: 'pen-05', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'V',
+        name: 'Cinco de Oros', keywords: 'Ajuste · Carencia · Apoyo cerca',
+        img: './cards/Pents05.jpg',
+        essence: 'Sentir un apriete o soledad momentánea, cuando muchas veces hay ayuda cerca.',
+        upright: 'Momento ajustado en plata o energía; no te aísles, mirá quién te puede tender una mano.',
+        reversed: 'Alivio económico, recuperación y salir de una racha ajustada.',
+        symbols: 'Dos figuras caminando en la nieve junto a un vitral iluminado con cinco oros.',
+        tip: 'Si estás ajustado o cansado hoy, pedí apoyo y no cargues todo solo.'
+      },
+      {
+        id: 'pen-06', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'VI',
+        name: 'Seis de Oros', keywords: 'Compartir · Dar y recibir · Justo',
+        img: './cards/Pents06.jpg',
+        essence: 'El intercambio sano entre dar y recibir, ayudar o ser ayudado con equilibrio.',
+        upright: 'Generosidad, ayuda justa, buen intercambio, cobro o apoyo que llega.',
+        reversed: 'Desequilibrio al dar o recibir, deudas o dar esperando algo a cambio.',
+        symbols: 'La figura con balanza repartiendo monedas a dos personas arrodilladas.',
+        tip: 'Dá hoy lo que puedas dar de corazón, sin vaciarte.'
+      },
+      {
+        id: 'pen-07', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'VII',
+        name: 'Siete de Oros', keywords: 'Paciencia · Siembra · Balance',
+        img: './cards/Pents07.jpg',
+        essence: 'Parar un segundo a mirar cómo viene creciendo lo que sembraste y tener paciencia.',
+        upright: 'Evaluar avances, esperar la cosecha con calma y constancia a mediano plazo.',
+        reversed: 'Impaciencia por ver resultados ya o sentir que cuesta arrancar.',
+        symbols: 'La figura apoyada en su herramienta mirando seis oros en la planta y uno a sus pies.',
+        tip: 'Hacé un balance tranquilo de lo que venís construyendo sin apurarte.'
+      },
+      {
+        id: 'pen-08', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'VIII',
+        name: 'Ocho de Oros', keywords: 'Práctica · Dedicación · Detalle',
+        img: './cards/Pents08.jpg',
+        essence: 'Meterle práctica y detalle a eso que querés dominar: la constancia hace la diferencia.',
+        upright: 'Estudio, perfeccionar habilidades, trabajo prolijo y dedicación diaria.',
+        reversed: 'Hacerlo en piloto automático, falta de ganas o trabarte por perfeccionismo.',
+        symbols: 'El artesano tallando un oro mientras otros oros ya están listos a un lado.',
+        tip: 'Practicá o mejorá un detalle concreto de tu trabajo o estudio hoy.'
+      },
+      {
+        id: 'pen-09', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'IX',
+        name: 'Nueve de Oros', keywords: 'Independencia · Disfrute · Valor',
+        img: './cards/Pents09.jpg',
+        essence: 'Disfrutar el fruto de tu propio esfuerzo con independencia y buen gusto.',
+        upright: 'Bienestar propio, autonomía, abundancia y disfrutar lo que construiste.',
+        reversed: 'Dependencia económica o descuidar tu propio disfrute.',
+        symbols: 'La figura elegante en un jardín lleno de vides y uvas con nueve oros y un halcón.',
+        tip: 'Disfrutá hoy algo que conseguiste por tu propio mérito.'
+      },
+      {
+        id: 'pen-10', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'X',
+        name: 'Diez de Oros', keywords: 'Legado · Estabilidad · Raíces',
+        img: './cards/Pents10.jpg',
+        essence: 'Solidez a largo plazo, historia familiar, respaldo y abundancia que perdura.',
+        upright: 'Estabilidad durable, familia, proyecto sólido o respaldo a futuro.',
+        reversed: 'Tensiones por plata o temas familiares, o falta de estabilidad a largo plazo.',
+        symbols: 'Diez oros dispuestos en arco sobre la pareja, el anciano, el perro y el arco de entrada.',
+        tip: 'Pensá una decisión de hoy pensando en cómo te va a servir a largo plazo.'
+      },
+      {
+        id: 'pen-11', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'Sota',
+        name: 'Sota de Oros', keywords: 'Aprender · Realismo · Paso firme',
+        img: './cards/Pents11.jpg',
+        essence: 'Curiosidad práctica y ganas de aprender algo útil paso a paso.',
+        upright: 'Buen momento para estudiar, arrancar un curso o dar un paso práctico.',
+        reversed: 'Colgarse, falta de constancia o poner metas poco realistas.',
+        symbols: 'El joven observando con calma el oro que sostiene sobre un sendero verde.',
+        tip: 'Dá un paso chico pero real hacia un estudio o meta práctica hoy.'
+      },
+      {
+        id: 'pen-12', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'Caballero',
+        name: 'Caballero de Oros', keywords: 'Constancia · Método · Cumplir',
+        img: './cards/Pents12.jpg',
+        essence: 'Avanzar despacio pero seguro, cumpliendo lo que prometés con seriedad.',
+        upright: 'Constancia, responsabilidad, ritmo firme y resultados confiables.',
+        reversed: 'Quedarte estancado en la rutina, terquedad o ir demasiado lento.',
+        symbols: 'El jinete tranquilo sobre el caballo de paso firme sosteniendo el oro sobre el campo.',
+        tip: 'Cumplí hoy con un compromiso chico que tenías pendiente: la constancia suma.'
+      },
+      {
+        id: 'pen-13', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'Reina',
+        name: 'Reina de Oros', keywords: 'Abundancia · Cuidado · Sentido común',
+        img: './cards/Pents13.jpg',
+        essence: 'Hacer que lo cotidiano sea cálido, práctico y abundante sin perder los pies en la tierra.',
+        upright: 'Sentido práctico, calidez, cuidar el hogar y administrar bien lo que tenés.',
+        reversed: 'Cuidar a todos menos a vos o vivir preocupada por lo material.',
+        symbols: 'La reina sentada con el oro, flores y el conejo en un entorno verde y florido.',
+        tip: 'Hacé algo simple que mejore tu comodidad o tu rutina diaria hoy.'
+      },
+      {
+        id: 'pen-14', arcana: 'minor', suit: 'pentacles', suitName: 'Oros · Tierra', numeral: 'Rey',
+        name: 'Rey de Oros', keywords: 'Solidez · Gestión · Prosperidad',
+        img: './cards/Pents14.jpg',
+        essence: 'Madurez material, buena cabeza para administrar y respaldo sólido.',
+        upright: 'Estabilidad, buena gestión, seguridad económica y liderazgo práctico.',
+        reversed: 'Apego excesivo a la plata, terquedad o medir todo solo por lo material.',
+        symbols: 'El rey en su trono tallado con toros y uvas sosteniendo el oro y el cetro.',
+        tip: 'Ordená un número, presupuesto o plan práctico con cabeza fría hoy.'
+      }
+    ];
+
+    const SPREAD_POSITIONS = {
+      1: ['Vibra del Día'],
+      3: ['1. Pasado / Origen', '2. Presente / Hoy', '3. Futuro / Camino'],
+      7: [
+        '1. Pasado', '2. Presente', '3. Lo que no se ve',
+        '4. Trabas', '5. Tu entorno', '6. Consejo', '7. Resultado probable'
+      ],
+      10: [
+        '1. Núcleo hoy', '2. Reto / Cruce', '3. Raíz inconsciente', '4. Pasado reciente',
+        '5. Meta consciente', '6. Lo que viene', '7. Tu postura', '8. Tu entorno',
+        '9. Ganas y miedos', '10. Cierre / Desenlace'
+      ]
+    };
+
+    const SUIT_ACCENT = {
+      major: '#E11D48',
+      wands: '#F43F5E',
+      cups: '#EC4899',
+      swords: '#A855F7',
+      pentacles: '#DB2777'
+    };
+
+    const state = {
+      filter: 'all',
+      search: '',
+      previewReversed: false,
+      drawnCards: [],
+      modalCard: null,
+      modalReversed: false
+    };
+
+    function launchOpeningSparkles() {
+      const layer = document.getElementById('openingSparkles');
+      if (!layer) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      layer.innerHTML = '';
+      const colors = ['#ec4899', '#e11d48', '#f472b6', '#c084fc', '#fb7185'];
+      const total = 32;
+
+      for (let i = 0; i < total; i++) {
+        const el = document.createElement('span');
+        el.className = 'cute-sparkle';
+        const x = 6 + ((i * 29 + (i % 5) * 11) % 88);
+        const y = 8 + ((i * 23 + (i % 7) * 9) % 84);
+        const driftX = ((i % 2 === 0 ? 1 : -1) * (14 + (i % 6) * 7));
+        const driftY = -(18 + (i % 5) * 10);
+        const delay = ((i % 8) * 0.14).toFixed(2) + 's';
+        const dur = (2.1 + (i % 4) * 0.22).toFixed(2) + 's';
+        const size = 14 + (i % 4) * 5;
+        const color = colors[i % colors.length];
+
+        el.style.setProperty('--spark-x', x + '%');
+        el.style.setProperty('--spark-y', y + '%');
+        el.style.setProperty('--drift-x', driftX + 'px');
+        el.style.setProperty('--drift-y', driftY + 'px');
+        el.style.setProperty('--spark-delay', delay);
+        el.style.setProperty('--spark-dur', dur);
+        el.style.setProperty('--spark-color', color);
+
+        el.innerHTML = i % 3 === 0
+          ? `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`
+          : `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L14.7 9.3 L22 12 L14.7 14.7 L12 22 L9.3 14.7 L2 12 L9.3 9.3 Z"/></svg>`;
+
+        layer.appendChild(el);
+      }
+
+      setTimeout(() => {
+        layer.innerHTML = '';
+      }, 3050);
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const el = document.createElement('div');
+      el.className = 'romance-panel rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-[#831843] border border-pink-300 shadow-lg transition-opacity duration-300';
+      el.textContent = message;
+      container.appendChild(el);
+      setTimeout(() => {
+        el.style.opacity = '0';
+        setTimeout(() => el.remove(), 300);
+      }, 2600);
+    }
+
+    function getFilteredCards() {
+      const q = state.search.trim().toLowerCase();
+      return TAROT_DECK.filter((card) => {
+        const matchesTab =
+          state.filter === 'all' ||
+          (state.filter === 'major' && card.arcana === 'major') ||
+          card.suit === state.filter;
+
+        if (!matchesTab) return false;
+        if (!q) return true;
+
+        const haystack = `${card.numeral} ${card.name} ${card.suitName} ${card.keywords} ${card.essence} ${card.upright} ${card.reversed} ${card.symbols} ${card.tip}`.toLowerCase();
+        return haystack.includes(q);
+      });
+    }
+
+    function renderCardsGrid() {
+      const grid = document.getElementById('cardsGrid');
+      const empty = document.getElementById('emptyState');
+      const counter = document.getElementById('resultsCounter');
+      if (!grid || !empty || !counter) return;
+
+      const filtered = getFilteredCards();
+      counter.textContent = `Mostrando ${filtered.length} de ${TAROT_DECK.length} cartas`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      grid.innerHTML = filtered.map((card) => {
+        const accent = SUIT_ACCENT[card.suit] || '#EC4899';
+        const fallback = createFallbackSvgDataUrl(card.numeral, card.name, card.suitName, accent, card.id);
+        const revClass = state.previewReversed ? 'reversed-card' : '';
+        const primarySrc = (getCardImageSources(card)[0]) || card.img || fallback;
+
+        return `
+          <article
+            data-card-id="${card.id}"
+            tabindex="0"
+            role="button"
+            aria-label="Ver detalles de ${card.name}"
+            class="open-card-trigger card-tile rounded-2xl p-4 flex flex-col gap-3.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-400"
+          >
+            <div class="flex items-start gap-3.5">
+              <div class="w-20 h-32 sm:w-24 sm:h-36 shrink-0 rounded-xl overflow-hidden bg-white border border-pink-200 relative">
+                <img
+                  src="${primarySrc}"
+                  data-card-id="${card.id}"
+                  alt="${card.name} — Tarot Rider-Waite-Smith"
+                  loading="lazy"
+                  class="card-rws-img w-full h-full object-cover transition-transform duration-500 ${revClass}"
+                />
+              </div>
+
+              <div class="min-w-0 flex-1 space-y-1">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-mono text-xs px-2 py-0.5 rounded-md bg-pink-100 text-[#831843] border border-pink-200 font-medium">${card.numeral}</span>
+                  <span class="font-mono text-[11px] text-[#4C1D4B]/70 truncate">${card.suitName}</span>
+                </div>
+                <h3 class="font-display text-lg sm:text-xl font-bold text-[#831843] leading-snug">${card.name}</h3>
+                <p class="text-[11px] text-rose-600 font-medium leading-snug">${card.keywords}</p>
+                <p class="text-xs text-[#4C1D4B] leading-snug pt-0.5">${card.essence}</p>
+              </div>
+            </div>
+
+            <div class="space-y-2.5 pt-3 border-t border-pink-200/80 text-xs leading-relaxed">
+              <div>
+                <span class="font-mono uppercase tracking-wider text-[10px] text-rose-600 font-semibold block mb-0.5">▲ Al derecho ♥</span>
+                <p class="text-[#4C1D4B]">${card.upright}</p>
+              </div>
+              <div>
+                <span class="font-mono uppercase tracking-wider text-[10px] text-pink-600 font-semibold block mb-0.5">▼ Invertida</span>
+                <p class="text-[#4C1D4B]/90">${card.reversed}</p>
+              </div>
+              <div class="rounded-xl bg-white/85 border border-pink-200/90 p-2.5 space-y-1">
+                <p class="text-[11px] text-[#4C1D4B]"><strong class="text-[#831843]">En la imagen:</strong> ${card.symbols}</p>
+                <p class="text-[11px] text-rose-700"><strong class="text-rose-600">Tip extra para el día a día:</strong> ${card.tip}</p>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('img.card-rws-img').forEach((imgEl) => {
+        const card = TAROT_DECK.find((c) => c.id === imgEl.dataset.cardId);
+        if (!card) return;
+        const accent = SUIT_ACCENT[card.suit] || '#EC4899';
+        const fallback = createFallbackSvgDataUrl(card.numeral, card.name, card.suitName, accent, card.id);
+        attachCardImageFallback(imgEl, card, fallback);
+      });
+    }
+
+    function openCardModal(cardId, forceReversed = null) {
+      const card = TAROT_DECK.find((c) => c.id === cardId);
+      if (!card) return;
+
+      state.modalCard = card;
+      state.modalReversed = forceReversed !== null ? forceReversed : state.previewReversed;
+
+      const accent = SUIT_ACCENT[card.suit] || '#EC4899';
+      const fallback = createFallbackSvgDataUrl(card.numeral, card.name, card.suitName, accent, card.id);
+      const imgEl = document.getElementById('modalCardImg');
+
+      imgEl.dataset.svgFallbackApplied = '';
+      imgEl.alt = `${card.name} — Tarot Rider-Waite-Smith`;
+      imgEl.classList.toggle('reversed-card', state.modalReversed);
+      attachCardImageFallback(imgEl, card, fallback);
+
+      document.getElementById('modalCardMeta').textContent = `${card.numeral} · ${card.suitName}`;
+      document.getElementById('modalCardTitle').textContent = card.name;
+      document.getElementById('modalCardKeywords').textContent = card.keywords;
+      document.getElementById('modalEssenceText').textContent = card.essence;
+      document.getElementById('modalUprightText').textContent = card.upright;
+      document.getElementById('modalReversedText').textContent = card.reversed;
+      document.getElementById('modalSymbolsText').textContent = card.symbols;
+      document.getElementById('modalTipText').textContent = card.tip;
+
+      const modal = document.getElementById('cardModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCardModal() {
+      const modal = document.getElementById('cardModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      state.modalCard = null;
+    }
+
+    function shuffleDeck(deck) {
+      const copy = [...deck];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function drawInteractiveSpread() {
+      const count = parseInt(document.getElementById('simSpreadSelect').value, 10) || 3;
+      const allowRev = document.getElementById('allowReversedCheck').checked;
+      const positions = SPREAD_POSITIONS[count] || SPREAD_POSITIONS[3];
+      const shuffled = shuffleDeck(TAROT_DECK).slice(0, count);
+
+      state.drawnCards = shuffled.map((card, idx) => ({
+        card,
+        positionLabel: positions[idx] || `Carta ${idx + 1}`,
+        reversed: allowRev ? Math.random() < 0.35 : false,
+        revealed: false
+      }));
+
+      renderSpreadStage();
+      showToast(`Sacamos ${count} ${count === 1 ? 'carta' : 'cartas'} ♥. Tocá cada una para darla vuelta.`);
+    }
+
+    function renderSpreadStage() {
+      const stage = document.getElementById('spreadStage');
+      if (!stage) return;
+
+      stage.innerHTML = state.drawnCards.map((item, index) => {
+        const { card, positionLabel, reversed, revealed } = item;
+        const accent = SUIT_ACCENT[card.suit] || '#EC4899';
+        const primarySrc = (getCardImageSources(card)[0]) || card.img;
+        const meaning = reversed ? card.reversed : card.upright;
+        const orientationBadge = reversed
+          ? '<span class="font-mono text-[10px] px-2 py-0.5 rounded bg-pink-100 text-pink-700 border border-pink-300">▼ INVERTIDA</span>'
+          : '<span class="font-mono text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700 border border-rose-300">▲ AL DERECHO ♥</span>';
+
+        return `
+          <div class="flip-scene" data-draw-index="${index}">
+            <div
+              role="button"
+              tabindex="0"
+              aria-label="${positionLabel}: ${revealed ? card.name : 'Carta boca abajo, clic para dar vuelta'}"
+              class="flip-card w-full min-h-[360px] cursor-pointer focus:outline-none ${revealed ? 'is-flipped' : ''}"
+            >
+              <div class="flip-face absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-100 via-rose-50 to-purple-100 border-2 border-pink-300 p-4 flex flex-col justify-between items-center text-center shadow-md">
+                <span class="font-mono text-[11px] font-semibold text-[#831843] tracking-wider">${positionLabel}</span>
+                <div class="w-24 h-24 rounded-full border-2 border-rose-300 flex items-center justify-center bg-white/85 shadow-inner">
+                  <svg viewBox="0 0 24 24" class="w-11 h-11 text-rose-500 fill-current heart-float" aria-hidden="true">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+                <span class="font-mono text-[11px] text-[#4C1D4B]/80">Clic para dar vuelta ♥</span>
+              </div>
+
+              <div class="flip-face flip-back rounded-2xl bg-white border-2 border-pink-300 p-4 flex flex-col gap-3 shadow-lg">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-mono text-[11px] font-semibold text-[#831843] truncate">${positionLabel}</span>
+                  ${orientationBadge}
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <img
+                    src="${primarySrc}"
+                    data-card-id="${card.id}"
+                    alt="${card.name}"
+                    class="spread-rws-img w-16 h-24 rounded-lg object-cover border border-pink-200 shrink-0 ${reversed ? 'reversed-card' : ''}"
+                  />
+                  <div class="min-w-0">
+                    <div class="font-mono text-[11px] text-[#4C1D4B]/70">${card.numeral} · ${card.suitName}</div>
+                    <div class="font-display text-base font-bold text-[#831843] leading-tight">${card.name}</div>
+                    <div class="text-[11px] text-rose-600 font-medium mt-0.5 line-clamp-2">${card.keywords}</div>
+                  </div>
+                </div>
+
+                <p class="text-xs text-[#4C1D4B] leading-relaxed pt-2 border-t border-pink-100">${meaning}</p>
+                <p class="text-[11px] text-[#831843] bg-pink-50 border border-pink-200/80 rounded-lg p-2"><strong class="text-rose-600">Tip extra:</strong> ${card.tip}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      stage.querySelectorAll('img.spread-rws-img').forEach((imgEl) => {
+        const card = TAROT_DECK.find((c) => c.id === imgEl.dataset.cardId);
+        if (!card) return;
+        const accent = SUIT_ACCENT[card.suit] || '#EC4899';
+        const fallback = createFallbackSvgDataUrl(card.numeral, card.name, card.suitName, accent, card.id);
+        attachCardImageFallback(imgEl, card, fallback);
+      });
+    }
+
+    function initTarotManual() {
+      try {
+        launchOpeningSparkles();
+        renderCardsGrid();
+        drawInteractiveSpread();
+
+        document.querySelectorAll('.filter-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.filter = btn.dataset.filter;
+            document.querySelectorAll('.filter-btn').forEach((b) => {
+              const active = b === btn;
+              b.setAttribute('aria-selected', String(active));
+              b.className = active
+                ? 'filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-pink-500 to-rose-400 text-white shadow-sm transition cursor-pointer'
+                : 'filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-white hover:bg-pink-50 text-[#831843] border border-pink-200 transition cursor-pointer';
+            });
+            renderCardsGrid();
+          });
+        });
+
+        document.getElementById('cardSearch').addEventListener('input', (e) => {
+          state.search = e.target.value;
+          renderCardsGrid();
+        });
+
+        document.getElementById('resetFiltersBtn').addEventListener('click', () => {
+          state.filter = 'all';
+          state.search = '';
+          document.getElementById('cardSearch').value = '';
+          const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+          if (allBtn) allBtn.click();
+        });
+
+        document.getElementById('togglePreviewReverse').addEventListener('click', (e) => {
+          state.previewReversed = !state.previewReversed;
+          e.currentTarget.textContent = state.previewReversed ? 'Significado al Derecho' : 'Significado Invertido';
+          renderCardsGrid();
+        });
+
+        document.getElementById('cardsGrid').addEventListener('click', (e) => {
+          const trigger = e.target.closest('.open-card-trigger');
+          if (trigger) openCardModal(trigger.dataset.cardId);
+        });
+
+        document.getElementById('cardsGrid').addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            const trigger = e.target.closest('.open-card-trigger');
+            if (trigger) {
+              e.preventDefault();
+              openCardModal(trigger.dataset.cardId);
+            }
+          }
+        });
+
+        document.getElementById('closeModalBtn').addEventListener('click', closeCardModal);
+        document.getElementById('cardModal').addEventListener('click', (e) => {
+          if (e.target.id === 'cardModal') closeCardModal();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeCardModal();
+        });
+        document.getElementById('modalFlipBtn').addEventListener('click', () => {
+          if (!state.modalCard) return;
+          state.modalReversed = !state.modalReversed;
+          document.getElementById('modalCardImg').classList.toggle('reversed-card', state.modalReversed);
+          document.getElementById('modalFlipBtn').textContent = state.modalReversed ? 'Significado al Derecho' : 'Significado Invertido';
+        });
+
+        document.getElementById('drawSpreadBtn').addEventListener('click', drawInteractiveSpread);
+        document.getElementById('simSpreadSelect').addEventListener('change', drawInteractiveSpread);
+        document.getElementById('allowReversedCheck').addEventListener('change', drawInteractiveSpread);
+
+        document.getElementById('revealAllBtn').addEventListener('click', () => {
+          state.drawnCards.forEach((item) => { item.revealed = true; });
+          renderSpreadStage();
+        });
+
+        document.getElementById('spreadStage').addEventListener('click', (e) => {
+          const scene = e.target.closest('.flip-scene');
+          if (!scene) return;
+          const idx = parseInt(scene.dataset.drawIndex, 10);
+          const target = state.drawnCards[idx];
+          if (!target) return;
+          if (!target.revealed) {
+            target.revealed = true;
+            renderSpreadStage();
+          } else {
+            openCardModal(target.card.id, target.reversed);
+          }
+        });
+
+        document.getElementById('printPdfBtn').addEventListener('click', () => {
+          showToast('Abriendo vista para guardar o imprimir en PDF...');
+          setTimeout(() => window.print(), 250);
+        });
+      } catch (err) {
+        reportRuntimeError(err && err.message ? err.message : 'Error al iniciar el manual.');
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTarotManual);
+    } else {
+      initTarotManual();
+    }
+  </script>
+</body>
+</html>
