@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natalia · Carta Natal, Revolución Solar &amp; Numerología 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-blush-1: #fff3f8;
+      --bg-blush-2: #ffe3ef;
+      --bg-berry-soft: #f9d8e8;
+      --surface: rgba(255, 250, 253, 0.88);
+      --surface-white: #ffffff;
+      --ink: #381e2c;
+      --ink-muted: #764c62;
+      --ink-subtle: #9e7389;
+      --rose-main: #f25c94;
+      --rose-deep: #d63874;
+      --rose-soft: #ff9bc0;
+      --berry-accent: #b84a82;
+      --peach-rose: #ff8c94;
+      --border-pink: rgba(242, 92, 148, 0.22);
+      --border-strong: rgba(214, 56, 116, 0.36);
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --radius-pill: 999px;
+      --shadow-pink: 0 14px 34px -10px rgba(214, 56, 116, 0.16);
+      --shadow-hover: 0 20px 42px -12px rgba(214, 56, 116, 0.24);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255, 166, 201, 0.36) 0%, transparent 38%),
+        radial-gradient(circle at 88% 14%, rgba(255, 198, 222, 0.42) 0%, transparent 42%),
+        radial-gradient(circle at 78% 85%, rgba(255, 158, 178, 0.32) 0%, transparent 44%),
+        radial-gradient(circle at 20% 82%, rgba(247, 194, 224, 0.34) 0%, transparent 40%),
+        linear-gradient(155deg, var(--bg-blush-1) 0%, var(--bg-blush-2) 52%, var(--bg-berry-soft) 100%);
+      background-attachment: fixed;
+      line-height: 1.66;
+      padding: 36px 18px 80px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient pink glow orbs */
+    .glow-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.45;
+      animation: driftOrb 10s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      width: 280px;
+      height: 280px;
+      background: #ff9ec4;
+      top: -60px;
+      left: -60px;
+    }
+
+    .orb-2 {
+      width: 320px;
+      height: 320px;
+      background: #ffc2dc;
+      top: 28%;
+      right: -80px;
+      animation-delay: 2s;
+    }
+
+    .orb-3 {
+      width: 260px;
+      height: 260px;
+      background: #ff85b3;
+      bottom: -70px;
+      left: 18%;
+      animation-delay: 4s;
+    }
+
+    @keyframes driftOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(18px, -16px) scale(1.06); }
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header Masthead */
+    header.masthead {
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      border: 2px solid var(--border-pink);
+      border-radius: 32px;
+      padding: 42px 30px 34px;
+      text-align: center;
+      box-shadow: var(--shadow-pink);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose-deep);
+      background: #ffe3ef;
+      border: 1px solid var(--border-pink);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(2.2rem, 5.2vw, 3.35rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    h1 span.pink-italic {
+      font-style: italic;
+      background: linear-gradient(90deg, #e03778, #ff6fa5, #c94b89);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 0 auto 24px;
+      font-size: 0.98rem;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    /* Tabs (Solapas) */
+    .tabs-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      background: #ffffff;
+      border: 1.5px solid var(--border-pink);
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      box-shadow: 0 6px 16px -8px rgba(214, 56, 116, 0.16);
+    }
+
+    .tab-btn:hover {
+      color: var(--rose-deep);
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.is-active {
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff5c97 0%, #d93875 100%);
+      border-color: transparent;
+      box-shadow: 0 10px 24px -8px rgba(217, 56, 117, 0.45);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.is-active {
+      display: block;
+      animation: tabReveal 0.32s ease;
+    }
+
+    @keyframes tabReveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section index pills */
+    nav.index-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    nav.index-nav a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--border-pink);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      transition: all 0.2s ease;
+    }
+
+    nav.index-nav a:hover {
+      background: #ff5c97;
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    /* Panels */
+    section.panel {
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      border: 1.5px solid var(--border-pink);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-pink);
+      margin-bottom: 24px;
+      transition: transform 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    section.panel.is-visible {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1.5px solid rgba(242, 92, 148, 0.16);
+    }
+
+    .panel-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .panel-num {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff6fa5, #d93875);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.18;
+    }
+
+    .panel-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose-deep);
+      white-space: nowrap;
+    }
+
+    .panel-intro {
+      color: var(--ink-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* Guide boxes */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .note-box {
+      background: var(--surface-white);
+      border: 1.5px solid rgba(242, 92, 148, 0.18);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .note-box h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.22rem;
+      color: var(--rose-deep);
+      margin-bottom: 6px;
+    }
+
+    .note-box p {
+      font-size: 0.93rem;
+      color: var(--ink-muted);
+    }
+
+    .formula-bar {
+      background: linear-gradient(90deg, #ffe3ef, #ffd4e7);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 16px;
+      padding: 12px 18px;
+      text-align: center;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .formula-bar strong {
+      color: var(--rose-deep);
+      font-weight: 700;
+    }
+
+    /* Big Three */
+    .trio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 16px;
+    }
+
+    .trio-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fff5f9 100%);
+      border: 1.5px solid rgba(242, 92, 148, 0.22);
+      border-radius: 22px;
+      padding: 22px 20px;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .trio-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--rose-main);
+    }
+
+    .role-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose-deep);
+      background: #ffe4ef;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 8px;
+    }
+
+    .trio-card h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.32rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .meta-line {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--berry-accent);
+      margin-bottom: 10px;
+    }
+
+    .trio-card p {
+      font-size: 0.93rem;
+      color: var(--ink-muted);
+    }
+
+    /* Placement entries */
+    .entries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      gap: 16px;
+    }
+
+    .entry {
+      background: var(--surface-white);
+      border: 1.5px solid rgba(242, 92, 148, 0.18);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .entry:hover {
+      transform: translateY(-2px);
+      border-color: var(--rose-soft);
+    }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .entry h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.18rem;
+      color: var(--ink);
+    }
+
+    .coords {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--rose-deep);
+      background: #fff0f6;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .entry p {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+    }
+
+    /* Elements in rosy palette */
+    .elements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .el-box {
+      border-radius: 20px;
+      padding: 20px 18px;
+      border: 1.5px solid rgba(242, 92, 148, 0.22);
+    }
+
+    .el-fire  { background: linear-gradient(180deg, #fff5f6, #ffe4e9); }
+    .el-earth { background: linear-gradient(180deg, #fff4f8, #fce0ec); }
+    .el-air   { background: linear-gradient(180deg, #fdf3fa, #f7dcf0); }
+    .el-water { background: linear-gradient(180deg, #fff2f7, #ffd9ea); }
+
+    .el-box h3 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.28rem;
+      color: var(--rose-deep);
+      margin-bottom: 3px;
+    }
+
+    .el-signs {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 10px;
+    }
+
+    .el-box ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .el-box li {
+      margin-bottom: 7px;
+    }
+
+    .el-box li strong {
+      color: var(--ink);
+    }
+
+    .element-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      text-align: center;
+      background: var(--surface-white);
+      border: 1.5px solid var(--border-pink);
+      border-radius: 16px;
+      padding: 13px 16px;
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+    }
+
+    .element-strip span strong {
+      color: var(--rose-deep);
+    }
+
+    /* Table */
+    .table-shell {
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1.5px solid var(--border-pink);
+      background: var(--surface-white);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: linear-gradient(90deg, #ff639b, #d93875);
+      padding: 12px 18px;
+    }
+
+    td {
+      padding: 11px 18px;
+      border-bottom: 1px solid rgba(242, 92, 148, 0.12);
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    td:first-child {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background: #fff9fc;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Closing + Advice */
+    .closing {
+      background: linear-gradient(135deg, #ff5e99 0%, #df3877 52%, #b83b74 100%);
+      color: #ffffff;
+      border-radius: 28px;
+      padding: 36px 28px 30px;
+      text-align: center;
+      box-shadow: 0 18px 38px -12px rgba(217, 56, 117, 0.42);
+    }
+
+    .closing .eyebrow {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .closing h2 {
+      color: #ffffff;
+      font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+      margin-bottom: 12px;
+    }
+
+    .closing p {
+      max-width: 660px;
+      margin: 0 auto 22px;
+      font-size: 0.97rem;
+      color: rgba(255, 255, 255, 0.94);
+      font-weight: 500;
+    }
+
+    .advice-note {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #ffffff;
+      font-size: 0.93rem;
+      font-weight: 600;
+    }
+
+    .advice-note strong {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ffe6f0;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 18px 12px 56px; }
+      header.masthead { padding: 30px 18px 26px; border-radius: 24px; }
+      section.panel { padding: 24px 16px; border-radius: 22px; }
+      .panel-head { flex-direction: column; gap: 4px; }
+      .closing { padding: 28px 18px 24px; border-radius: 22px; }
+    }
+  
+    /* Adorable greeting penguin toast */
+    .penguin-greeter {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 999;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(26px) scale(0.92);
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .penguin-greeter.is-open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .penguin-bubble {
+      position: relative;
+      background: #ffffff;
+      border: 2px solid var(--border-strong);
+      border-radius: 20px 20px 6px 20px;
+      padding: 12px 34px 12px 15px;
+      max-width: 245px;
+      box-shadow: 0 14px 28px -10px rgba(214, 56, 116, 0.28);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    .penguin-bubble strong {
+      display: block;
+      color: var(--rose-deep);
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+
+    .penguin-close {
+      position: absolute;
+      top: 7px;
+      right: 8px;
+      width: 22px;
+      height: 22px;
+      border: none;
+      border-radius: 50%;
+      background: #ffe3ef;
+      color: var(--rose-deep);
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .penguin-close:hover {
+      background: var(--rose-main);
+      color: #ffffff;
+      transform: scale(1.08);
+    }
+
+    .penguin-avatar-btn {
+      width: 78px;
+      height: 84px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      filter: drop-shadow(0 10px 18px rgba(214, 56, 116, 0.28));
+      transition: transform 0.22s ease;
+    }
+
+    .penguin-avatar-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    .penguin-wing-wave {
+      transform-origin: 24px 54px;
+      animation: waveWing 1.35s ease-in-out infinite;
+    }
+
+    @keyframes waveWing {
+      0%, 100% { transform: rotate(0deg); }
+      30% { transform: rotate(-28deg); }
+      60% { transform: rotate(12deg); }
+    }
+
+    @media (max-width: 640px) {
+      .penguin-greeter {
+        right: 12px;
+        bottom: 14px;
+        gap: 8px;
+      }
+      .penguin-bubble {
+        max-width: 195px;
+        padding: 10px 28px 10px 12px;
+        font-size: 0.8rem;
+      }
+      .penguin-avatar-btn {
+        width: 66px;
+        height: 72px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="glow-layer" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="wrap">
+    <header class="masthead">
+      <span class="eyebrow">Natalia · Astrología &amp; Numerología</span>
+      <h1>Mapa de <span class="pink-italic">Natalia</span></h1>
+      <p class="lead">
+        Su carta natal, su revolución solar anual y la energía numerológica de su 2027 (nacida el 17/11)
+        en un recorrido claro, fresco y en tonos rosados.
+      </p>
+
+      <div class="tabs-bar" role="tablist" aria-label="Solapas principales">
+        <button class="tab-btn is-active" role="tab" aria-selected="true" aria-controls="panel-natal" id="tab-natal">
+          Carta Natal
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-solar" id="tab-solar">
+          Revolución Solar
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-numerologia" id="tab-numerologia">
+          Numerología 2027
+        </button>
+      </div>
+      <div style="text-align: center; margin-top: 16px;">
+        <a href="manual-tarot.html" class="tab-btn" style="background: #ffe3ef; color: var(--rose-deep); border-color: var(--border-pink); text-decoration: none;">
+          Volver al Manual
+        </a>
+      </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- SOLAPA 1: CARTA NATAL                                      -->
+    <!-- ========================================================= -->
+    <div id="panel-natal" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-natal">
+      <nav class="index-nav" aria-label="Secciones de la Carta Natal">
+        <a href="#lectura">00. Lectura</a>
+        <a href="#casas-1-12">A tener en cuenta: Casas</a>
+        <a href="#pilares">01. Big Three</a>
+        <a href="#dinamica">02. Mente, afecto y acción</a>
+        <a href="#procesos">03. Crecimiento y vínculos</a>
+        <a href="#brujula">04. Brújula y puntos</a>
+        <a href="#elementos">05. Elementos</a>
+        <a href="#efemerides">06. Posiciones</a>
+      </nav>
+
+      <section id="lectura" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">00</span>
+            <h2>Cómo leer el mapa</h2>
+          </div>
+          <span class="panel-tag">Fundamentos</span>
+        </div>
+        <p class="panel-intro">
+          Cada planeta o punto de la carta reúne dos coordenadas que conviene observar juntas:
+        </p>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El signo</h3>
+            <p>Define el estilo o la actitud con la que se expresa esa energía: directa, analítica, leal, expansiva o transformadora.</p>
+          </div>
+          <div class="note-box">
+            <h3>La casa (1–12)</h3>
+            <p>Señala el escenario o área de la vida donde pasa la acción: identidad, recursos, vínculos, carrera o procesos internos.</p>
+          </div>
+        </div>
+        <div class="formula-bar">
+          <strong>Signo</strong> = cómo lo hace &nbsp;&nbsp;·&nbsp;&nbsp; <strong>Casa</strong> = dónde lo vive
+        </div>
+      </section>
+
+      <section id="casas-1-12" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">00.5</span>
+            <h2>Qué representa cada casa (1–12)</h2>
+          </div>
+          <span class="panel-tag">A tener en cuenta</span>
+        </div>
+        <p class="panel-intro">
+          Antes de desarrollar los planetas y puntos de su carta natal, tené en cuenta qué área de la vida representa cada casa:
+        </p>
+
+        <div class="entries-grid">
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 1</h3>
+              <span class="coords">Identidad e impulso</span>
+            </div>
+            <p>La imagen personal, el cuerpo, la forma de presentarse al mundo y cómo inicia las cosas.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 2</h3>
+              <span class="coords">Recursos y valor</span>
+            </div>
+            <p>El dinero propio, los talentos materiales, la seguridad tangible y la autoestima.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 3</h3>
+              <span class="coords">Mente y entorno</span>
+            </div>
+            <p>La comunicación, el aprendizaje diario, los traslados cortos, hermanos y el círculo cercano.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 4</h3>
+              <span class="coords">Raíces y hogar</span>
+            </div>
+            <p>La familia de origen, la casa, la intimidad, las memorias y el refugio emocional.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 5</h3>
+              <span class="coords">Creatividad y disfrute</span>
+            </div>
+            <p>El romance, la expresión artística, el juego, los hobbies, la alegría y los hijos o creaciones.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 6</h3>
+              <span class="coords">Rutina y cuidado</span>
+            </div>
+            <p>Los hábitos diarios, el trabajo cotidiano, el orden práctico, el servicio y el bienestar físico.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 7</h3>
+              <span class="coords">Vínculos y acuerdos</span>
+            </div>
+            <p>La pareja, las asociaciones, los pactos uno a uno y el espejo que devuelven los demás.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 8</h3>
+              <span class="coords">Profundidad y cambio</span>
+            </div>
+            <p>Las transformaciones intensas, la intimidad profunda, lo oculto, los duelos y recursos compartidos.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 9</h3>
+              <span class="coords">Horizonte y sentido</span>
+            </div>
+            <p>Los viajes largos, los estudios superiores, la filosofía de vida, otras culturas y la expansión.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 10</h3>
+              <span class="coords">Vocación y logro</span>
+            </div>
+            <p>La carrera profesional, la proyección pública, la autoridad, las metas y el reconocimiento.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 11</h3>
+              <span class="coords">Comunidad y futuro</span>
+            </div>
+            <p>Las amistades, los grupos, las causas colectivas, las redes y los proyectos a futuro.</p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Casa 12</h3>
+              <span class="coords">Mundo interno y cierre</span>
+            </div>
+            <p>Lo inconsciente, los retiros, la soledad reparadora, los cierres de ciclo y lo sutil.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pilares" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">01</span>
+            <h2>Los tres pilares</h2>
+          </div>
+          <span class="panel-tag">Big Three</span>
+        </div>
+        <div class="trio-grid">
+          <article class="trio-card">
+            <span class="role-label">Primera impresión</span>
+            <h3>Ascendente en Aries</h3>
+            <span class="meta-line">22° 52' · Casa 1</span>
+            <p>
+              Su forma de arrancar es directa, decidida y valiente. Ante algo nuevo suele ir al frente con iniciativa
+              propia, independencia y ganas de hacer las cosas a su manera.
+            </p>
+          </article>
+
+          <article class="trio-card">
+            <span class="role-label">Identidad central</span>
+            <h3>Sol en Escorpio</h3>
+            <span class="meta-line">25° 39' · Casa 8</span>
+            <p>
+              Su núcleo busca profundidad, verdad y transformación. En Casa 8 cobran fuerza la intimidad genuina, los
+              procesos psicológicos y la capacidad de reinventarse en los cambios profundos.
+            </p>
+          </article>
+
+          <article class="trio-card">
+            <span class="role-label">Necesidad emocional</span>
+            <h3>Luna en Virgo</h3>
+            <span class="meta-line">15° 49' · Casa 5</span>
+            <p>
+              Necesita claridad, orden y sentir que aporta algo útil (a veces con mucha autoexigencia). En Casa 5, su
+              refugio emocional está en la creatividad, el juego, los hobbies y los proyectos personales.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="dinamica" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">02</span>
+            <h2>Mente, afecto y acción</h2>
+          </div>
+          <span class="panel-tag">Dinámica personal</span>
+        </div>
+        <div class="entries-grid">
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Mercurio en Sagitario</h3>
+              <span class="coords">15° 54' · Casa 8</span>
+            </div>
+            <p>
+              Mente abierta, curiosa y en busca de sentido, pero enfocada en Casa 8 en lo que está debajo de la superficie,
+              los misterios y las dinámicas profundas.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Venus en Capricornio</h3>
+              <span class="coords">4° 36' · Casa 9</span>
+            </div>
+            <p>
+              En el amor y en lo que valora busca lealtad, seriedad y construcciones firmes a largo plazo. En Casa 9 le
+              atraen los viajes, estudios, otras culturas y una visión amplia de vida.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Marte en Acuario</h3>
+              <span class="coords">1° 33' · Casa 10</span>
+            </div>
+            <p>
+              Actúa con libertad, originalidad y espíritu independiente. En Casa 10 se proyecta en su carrera y rol
+              público, donde destaca por aportar ideas propias y frescas.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="procesos" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">03</span>
+            <h2>Crecimiento y vínculos</h2>
+          </div>
+          <span class="panel-tag">Madurez &amp; campo generacional</span>
+        </div>
+        <div class="entries-grid">
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Júpiter en Capricornio</h3>
+              <span class="coords">11° 52' · Casa 9</span>
+            </div>
+            <p>
+              Crece mediante la constancia, la madurez y el compromiso con sus metas. En Casa 9 se expande a través de
+              estudios, enseñanza, viajes y una filosofía de vida sólida.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Saturno y Plutón en Escorpio</h3>
+              <span class="coords">19° 51' &amp; 3° 0' · Casa 7</span>
+            </div>
+            <p>
+              En parejas y sociedades importantes vive aprendizajes de compromiso, límites sanos y transformación,
+              equilibrando confianza y entrega sin caer en el control.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Urano y Neptuno en Sagitario</h3>
+              <span class="coords">12° 42' (C8) · 29° 52' (C9)</span>
+            </div>
+            <p>
+              Aportan giros inesperados en procesos de cambio profundo (Urano en Casa 8) y una sensibilidad idealista o
+              espiritual al buscar sentido y nuevos horizontes (Neptuno en Casa 9).
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="brujula" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">04</span>
+            <h2>Brújula y puntos clave</h2>
+          </div>
+          <span class="panel-tag">Ejes &amp; matices</span>
+        </div>
+        <div class="entries-grid">
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Nodo Norte en Tauro</h3>
+              <span class="coords">27° 29'M / 27° 26'V · Casa 2</span>
+            </div>
+            <p>
+              Su brújula de crecimiento la invita a cultivar la calma, disfrutar lo sencillo y construir estabilidad
+              concreta, soltando el exceso de tensión o la dependencia de crisis externas.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Medio Cielo en Capricornio</h3>
+              <span class="coords">25° 23' · Casa 10</span>
+            </div>
+            <p>
+              Su meta profesional y legado se construyen paso a paso, con responsabilidad, estrategia y constancia.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Quirón en Géminis</h3>
+              <span class="coords">6° 28' · Casa 2</span>
+            </div>
+            <p>
+              Aprendizaje sensible alrededor de cómo valora lo propio, cómo comunica sus necesidades y cómo afirma su
+              seguridad personal.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Lilith en Aries</h3>
+              <span class="coords">8° 13' · Casa 12</span>
+            </div>
+            <p>
+              Fuerza instintiva y deseo de autonomía que a veces guarda en silencio o en momentos de soledad, pidiendo
+              ser aceptado sin culpa.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Punto de la Fortuna en Acuario</h3>
+              <span class="coords">13° 1' · Casa 10</span>
+            </div>
+            <p>
+              Encuentra facilidad y bienestar cuando se anima a ser auténtica en su rol público y aporta una mirada original.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="elementos" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">05</span>
+            <h2>Los cuatro elementos</h2>
+          </div>
+          <span class="panel-tag">Cualidad energética</span>
+        </div>
+        <p class="panel-intro">
+          Los cuatro elementos muestran qué tipo de energía predomina y cómo se siente cada signo en la carta de Natalia:
+        </p>
+
+        <div class="elements-grid">
+          <article class="el-box el-fire">
+            <h3>Fuego</h3>
+            <span class="el-signs">Aries · Leo · Sagitario</span>
+            <ul>
+              <li><strong>¿Qué es?</strong> Impulso, pasión, entusiasmo y ganas de hacer.</li>
+              <li><strong>Cómo se siente:</strong> Chispa, valor y movimiento.</li>
+              <li><strong>En Natalia:</strong> Ascendente en Aries y Mercurio en Sagitario (con Urano y Neptuno en Sagitario).</li>
+            </ul>
+          </article>
+
+          <article class="el-box el-earth">
+            <h3>Tierra</h3>
+            <span class="el-signs">Tauro · Virgo · Capricornio</span>
+            <ul>
+              <li><strong>¿Qué es?</strong> Realismo, constancia, practicidad y concreción.</li>
+              <li><strong>Cómo se siente:</strong> Suelo firme, paciencia y resultados reales.</li>
+              <li><strong>En Natalia:</strong> Muy fuerte en Luna en Virgo, Venus, Júpiter y Medio Cielo en Capricornio, y Nodo Norte en Tauro.</li>
+            </ul>
+          </article>
+
+          <article class="el-box el-air">
+            <h3>Aire</h3>
+            <span class="el-signs">Géminis · Libra · Acuario</span>
+            <ul>
+              <li><strong>¿Qué es?</strong> Ideas, comunicación, vínculos sociales y perspectiva.</li>
+              <li><strong>Cómo se siente:</strong> Aire fresco, lógica y originalidad.</li>
+              <li><strong>En Natalia:</strong> Marte y Punto de la Fortuna en Acuario, más Quirón en Géminis.</li>
+            </ul>
+          </article>
+
+          <article class="el-box el-water">
+            <h3>Agua</h3>
+            <span class="el-signs">Cáncer · Escorpio · Piscis</span>
+            <ul>
+              <li><strong>¿Qué es?</strong> Emociones, intuición, profundidad y sensibilidad.</li>
+              <li><strong>Cómo se siente:</strong> Marea interna y transformación.</li>
+              <li><strong>En Natalia:</strong> Marcada en Escorpio con el Sol, Saturno y Plutón.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="element-strip">
+          <span><strong>Fuego:</strong> actúa e impulsa</span>
+          <span><strong>Tierra:</strong> construye y sostiene</span>
+          <span><strong>Aire:</strong> piensa y conecta</span>
+          <span><strong>Agua:</strong> siente y transforma</span>
+        </div>
+      </section>
+
+      <section id="efemerides" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">06</span>
+            <h2>Posiciones natales</h2>
+          </div>
+          <span class="panel-tag">Referencia</span>
+        </div>
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>Astro / Punto</th>
+                <th>Signo</th>
+                <th>Grado</th>
+                <th>Casa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Sol</td><td>Escorpio</td><td>25° 39'</td><td>Casa 8</td></tr>
+              <tr><td>Luna</td><td>Virgo</td><td>15° 49'</td><td>Casa 5</td></tr>
+              <tr><td>Mercurio</td><td>Sagitario</td><td>15° 54'</td><td>Casa 8</td></tr>
+              <tr><td>Venus</td><td>Capricornio</td><td>4° 36'</td><td>Casa 9</td></tr>
+              <tr><td>Marte</td><td>Acuario</td><td>1° 33'</td><td>Casa 10</td></tr>
+              <tr><td>Júpiter</td><td>Capricornio</td><td>11° 52'</td><td>Casa 9</td></tr>
+              <tr><td>Saturno</td><td>Escorpio</td><td>19° 51'</td><td>Casa 7</td></tr>
+              <tr><td>Urano</td><td>Sagitario</td><td>12° 42'</td><td>Casa 8</td></tr>
+              <tr><td>Neptuno</td><td>Sagitario</td><td>29° 52'</td><td>Casa 9</td></tr>
+              <tr><td>Plutón</td><td>Escorpio</td><td>3° 0'</td><td>Casa 7</td></tr>
+              <tr><td>Nodo Norte Medio</td><td>Tauro</td><td>27° 29'</td><td>Casa 2</td></tr>
+              <tr><td>Nodo Norte Verdadero</td><td>Tauro</td><td>27° 26'</td><td>Casa 2</td></tr>
+              <tr><td>Lilith</td><td>Aries</td><td>8° 13'</td><td>Casa 12</td></tr>
+              <tr><td>Punto de la Fortuna</td><td>Acuario</td><td>13° 1'</td><td>Casa 10</td></tr>
+              <tr><td>Quirón</td><td>Géminis</td><td>6° 28'</td><td>Casa 2</td></tr>
+              <tr><td>Ascendente</td><td>Aries</td><td>22° 52'</td><td>Casa 1</td></tr>
+              <tr><td>Medio Cielo</td><td>Capricornio</td><td>25° 23'</td><td>Casa 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+
+      <section class="closing">
+        <span class="eyebrow">Síntesis natal</span>
+        <h2>Impulso valiente, profundidad y constancia</h2>
+        <p>
+          Natalia reúne la valentía directa de Aries, la profundidad transformadora de Escorpio, el cuidado atento de
+          Virgo y una ambición firme que la ayuda a construir su camino con autenticidad.
+        </p>
+        <div class="advice-note">
+          <strong>Consejo breve · Carta Natal</strong>
+          No te exijas resolverlo todo a la perfección: deja espacio para disfrutar lo que creas en Casa 5 y apóyate en la calma concreta de Tauro.
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- SOLAPA 2: REVOLUCIÓN SOLAR                                -->
+    <!-- ========================================================= -->
+    <div id="panel-solar" class="tab-panel" role="tabpanel" aria-labelledby="tab-solar">
+      <nav class="index-nav" aria-label="Secciones de la Revolución Solar">
+        <a href="#rs-lectura">00. Clima del año</a>
+        <a href="#rs-pilares">01. Eje anual</a>
+        <a href="#rs-dinamica">02. Mente, afecto y acción</a>
+        <a href="#rs-procesos">03. Metas, límites y cambios</a>
+        <a href="#rs-elementos">04. Elementos del año</a>
+        <a href="#rs-tabla">05. Posiciones RS</a>
+      </nav>
+
+      <section id="rs-lectura" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">00</span>
+            <h2>Sentido de la revolución solar</h2>
+          </div>
+          <span class="panel-tag">Ciclo anual</span>
+        </div>
+        <p class="panel-intro">
+          La revolución solar muestra el clima, los escenarios y los aprendizajes principales del año desde el regreso
+          del Sol a su grado natal (<strong>25° 39' de Escorpio</strong>), siempre en diálogo con su carta natal.
+        </p>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>El signo solar</h3>
+            <p>Indica cómo se expresa la energía durante este ciclo anual: con apertura, estructura, sensibilidad o empuje.</p>
+          </div>
+          <div class="note-box">
+            <h3>La casa solar</h3>
+            <p>Muestra dónde se concentra el movimiento del año: rutinas, hogar, proyectos, comunicación o proyección profesional.</p>
+          </div>
+        </div>
+        <div class="formula-bar">
+          <strong>Revolución solar</strong> = enfoque del año &nbsp;&nbsp;·&nbsp;&nbsp; <strong>Carta natal</strong> = base permanente
+        </div>
+      </section>
+
+      <section id="rs-pilares" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">01</span>
+            <h2>Los ejes del año</h2>
+          </div>
+          <span class="panel-tag">Foco solar</span>
+        </div>
+        <div class="trio-grid">
+          <article class="trio-card">
+            <span class="role-label">Actitud del ciclo</span>
+            <h3>Ascendente en Géminis</h3>
+            <span class="meta-line">13° 51' · Casa 1</span>
+            <p>
+              El año se abre con una actitud más curiosa, ágil y comunicativa. Invita a conversar, explorar opciones y
+              moverse con flexibilidad.
+            </p>
+          </article>
+
+          <article class="trio-card">
+            <span class="role-label">Propósito del año</span>
+            <h3>Sol en Escorpio</h3>
+            <span class="meta-line">25° 39' · Casa 6</span>
+            <p>
+              El foco central está en Casa 6: hábitos diarios, rutinas de cuidado, organización cotidiana, salud y
+              dinámica laboral. Transformar lo cotidiano desde adentro cobra protagonismo.
+            </p>
+          </article>
+
+          <article class="trio-card">
+            <span class="role-label">Pulso emocional anual</span>
+            <h3>Luna en Piscis</h3>
+            <span class="meta-line">1° 23' · Casa 9</span>
+            <p>
+              Aporta sensibilidad intuitiva y búsqueda de sentido amplio. En Casa 9, el bienestar emocional se nutre de
+              viajes, estudios, inspiración y horizontes nuevos.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="rs-dinamica" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">02</span>
+            <h2>Mente, afecto y acción en el ciclo</h2>
+          </div>
+          <span class="panel-tag">Movimiento anual</span>
+        </div>
+        <div class="entries-grid">
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Mercurio en Escorpio</h3>
+              <span class="coords">6° 37' · Casa 5</span>
+            </div>
+            <p>
+              Mente aguda y profunda aplicada a la creatividad, proyectos personales, romance o aquello que le apasiona
+              de verdad (Casa 5).
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Venus en Libra</h3>
+              <span class="coords">23° 10' · Casa 4</span>
+            </div>
+            <p>
+              Busca armonía, belleza y buen trato. En Casa 4, este tono equilibrado se orienta al hogar, la familia o
+              crear un espacio íntimo sereno.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Marte en Leo</h3>
+              <span class="coords">26° 39' · Casa 3</span>
+            </div>
+            <p>
+              Impulso decidido y expresivo para comunicar, escribir, negociar o moverse en su entorno cercano (Casa 3)
+              con confianza y calidez.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="rs-procesos" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">03</span>
+            <h2>Expansión, estructura y transformación</h2>
+          </div>
+          <span class="panel-tag">Horizonte &amp; madurez</span>
+        </div>
+        <div class="entries-grid">
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Júpiter en Leo</h3>
+              <span class="coords">26° 1' · Casa 3</span>
+            </div>
+            <p>
+              Acompaña a Marte en Casa 3 ampliando la expresión, los aprendizajes cotidianos, los intercambios y la
+              visibilidad de sus ideas.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Saturno y Neptuno en Aries</h3>
+              <span class="coords">8° 24' &amp; 1° 47' · Casa 10</span>
+            </div>
+            <p>
+              En Casa 10, el área profesional y pública pide madurez y realismo (Saturno), junto con una brújula más
+              inspirada sobre qué metas tienen sentido real (Neptuno).
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Urano en Géminis (C12) &amp; Plutón en Acuario (C8)</h3>
+              <span class="coords">4° 0' (C12) · 3° 19' (C8)</span>
+            </div>
+            <p>
+              Urano en Casa 12 trae intuiciones o pausas reveladoras; Plutón en Casa 8 impulsa depuración, recursos
+              compartidos y renovación profunda.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Medio Cielo en Piscis</h3>
+              <span class="coords">28° 58' · Casa 10</span>
+            </div>
+            <p>
+              Su proyección vocacional del año toma un matiz más intuitivo, sensible o creativo, buscando alinearse con
+              un propósito más humano.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="rs-elementos" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">04</span>
+            <h2>Elementos en la revolución solar</h2>
+          </div>
+          <span class="panel-tag">Tono del ciclo</span>
+        </div>
+        <p class="panel-intro">
+          Así se distribuyen los cuatro elementos en la revolución solar de Natalia:
+        </p>
+
+        <div class="elements-grid">
+          <article class="el-box el-fire">
+            <h3>Fuego</h3>
+            <span class="el-signs">Aries · Leo · Sagitario</span>
+            <ul>
+              <li><strong>Rol en el ciclo:</strong> Empuje, visibilidad y decisión.</li>
+              <li><strong>Posiciones RS:</strong> Marte y Júpiter en Leo; Saturno y Neptuno en Aries.</li>
+              <li><strong>Lectura:</strong> Activa la voz en su entorno y pide madurez en metas públicas.</li>
+            </ul>
+          </article>
+
+          <article class="el-box el-earth">
+            <h3>Tierra</h3>
+            <span class="el-signs">Tauro · Virgo · Capricornio</span>
+            <ul>
+              <li><strong>Rol en el ciclo:</strong> Concreción y ritmo constante.</li>
+              <li><strong>Posiciones RS:</strong> Sin planetas en signos de tierra en esta RS.</li>
+              <li><strong>Lectura:</strong> El sostén práctico se construye con rutinas conscientes (Casa 6) y su tierra natal.</li>
+            </ul>
+          </article>
+
+          <article class="el-box el-air">
+            <h3>Aire</h3>
+            <span class="el-signs">Géminis · Libra · Acuario</span>
+            <ul>
+              <li><strong>Rol en el ciclo:</strong> Diálogo, perspectiva y claridad.</li>
+              <li><strong>Posiciones RS:</strong> Ascendente y Urano en Géminis; Venus en Libra; Plutón en Acuario.</li>
+              <li><strong>Lectura:</strong> Abre el año con curiosidad, armonía en el hogar y cambios de fondo.</li>
+            </ul>
+          </article>
+
+          <article class="el-box el-water">
+            <h3>Agua</h3>
+            <span class="el-signs">Cáncer · Escorpio · Piscis</span>
+            <ul>
+              <li><strong>Rol en el ciclo:</strong> Intuición, emoción y depuración.</li>
+              <li><strong>Posiciones RS:</strong> Sol y Mercurio en Escorpio; Luna y Medio Cielo en Piscis.</li>
+              <li><strong>Lectura:</strong> Mantiene la sensibilidad abierta y la transformación en lo cotidiano.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="element-strip">
+          <span><strong>Fuego:</strong> impulsa y expresa</span>
+          <span><strong>Tierra:</strong> ordena y sostiene</span>
+          <span><strong>Aire:</strong> conecta y aclara</span>
+          <span><strong>Agua:</strong> intuye y renueva</span>
+        </div>
+      </section>
+
+      <section id="rs-tabla" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">05</span>
+            <h2>Posiciones de la revolución solar</h2>
+          </div>
+          <span class="panel-tag">Referencia anual</span>
+        </div>
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>Astro / Punto</th>
+                <th>Signo</th>
+                <th>Grado</th>
+                <th>Casa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Sol</td><td>Escorpio</td><td>25° 39'</td><td>Casa 6</td></tr>
+              <tr><td>Luna</td><td>Piscis</td><td>1° 23'</td><td>Casa 9</td></tr>
+              <tr><td>Mercurio</td><td>Escorpio</td><td>6° 37'</td><td>Casa 5</td></tr>
+              <tr><td>Venus</td><td>Libra</td><td>23° 10'</td><td>Casa 4</td></tr>
+              <tr><td>Marte</td><td>Leo</td><td>26° 39'</td><td>Casa 3</td></tr>
+              <tr><td>Júpiter</td><td>Leo</td><td>26° 1'</td><td>Casa 3</td></tr>
+              <tr><td>Saturno</td><td>Aries</td><td>8° 24'</td><td>Casa 10</td></tr>
+              <tr><td>Urano</td><td>Géminis</td><td>4° 0'</td><td>Casa 12</td></tr>
+              <tr><td>Neptuno</td><td>Aries</td><td>1° 47'</td><td>Casa 10</td></tr>
+              <tr><td>Plutón</td><td>Acuario</td><td>3° 19'</td><td>Casa 8</td></tr>
+              <tr><td>Ascendente</td><td>Géminis</td><td>13° 51'</td><td>Casa 1</td></tr>
+              <tr><td>Medio Cielo</td><td>Piscis</td><td>28° 58'</td><td>Casa 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="closing">
+        <span class="eyebrow">Síntesis del ciclo</span>
+        <h2>Curiosidad, armonía en casa y cuidado diario</h2>
+        <p>
+          Con Ascendente en Géminis y Sol en Escorpio en Casa 6, su revolución solar combina ganas de comunicar y
+          explorar con un llamado a ordenar la rutina cotidiana y construir un entorno tranquilo.
+        </p>
+        <div class="advice-note">
+          <strong>Consejo breve · Revolución Solar</strong>
+          Haz de tus rutinas diarias un espacio de cuidado real y protégelo con momentos de calma en tu hogar.
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- SOLAPA 3: NUMEROLOGÍA 2027 (NACIDA EL 17/11)              -->
+    <!-- ========================================================= -->
+    <div id="panel-numerologia" class="tab-panel" role="tabpanel" aria-labelledby="tab-numerologia">
+      <nav class="index-nav" aria-label="Secciones de Numerología 2027">
+        <a href="#num-calculo">00. Cálculo</a>
+        <a href="#num-energia">01. Energía del año 3</a>
+        <a href="#num-areas">02. Áreas clave en 2027</a>
+        <a href="#num-luces-sombras">03. Potencial y cuidado</a>
+      </nav>
+
+      <section id="num-calculo" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">00</span>
+            <h2>Cálculo de su año personal 2027</h2>
+          </div>
+          <span class="panel-tag">Fecha: 17/11</span>
+        </div>
+        <p class="panel-intro">
+          Sumando el día de nacimiento, el mes de nacimiento y el año 2027, reducidos a un dígito simple:
+        </p>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>Suma por partes</h3>
+            <p>
+              <strong>Día 17:</strong> 1 + 7 = <strong>8</strong> ·
+              <strong>Mes 11:</strong> 1 + 1 = <strong>2</strong> ·
+              <strong>Año 2027:</strong> 2 + 0 + 2 + 7 = 11 → 1 + 1 = <strong>2</strong>.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>Año Personal resultante</h3>
+            <p>
+              8 + 2 + 2 = 12 → 1 + 2 = <strong>3</strong>. En <strong>2027</strong>, Natalia transita un
+              <strong>Año Personal 3</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="formula-bar">
+          <strong>17/11 + 2027</strong> &nbsp;→&nbsp; 8 + 2 + 2 = 12 &nbsp;→&nbsp; <strong>Año Personal 3</strong>
+        </div>
+      </section>
+
+      <section id="num-energia" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">01</span>
+            <h2>La vibración del Año Personal 3</h2>
+          </div>
+          <span class="panel-tag">Tono numerológico</span>
+        </div>
+        <p class="panel-intro">
+          El <strong>3</strong> es el número de la expresión, la creatividad, el intercambio y la alegría de compartir.
+          Invita a darle voz a sus ideas, abrirse al diálogo y poner más frescura en su día a día.
+        </p>
+        <div class="trio-grid">
+          <article class="trio-card">
+            <span class="role-label">Voz y visibilidad</span>
+            <h3>Expresión auténtica</h3>
+            <span class="meta-line">Año Personal 3</span>
+            <p>
+              Buen momento para comunicar lo que piensa, escribir, presentar propuestas o mostrar su mirada sin quedarse
+              guardada.
+            </p>
+          </article>
+
+          <article class="trio-card">
+            <span class="role-label">Ideas en marcha</span>
+            <h3>Impulso creativo</h3>
+            <span class="meta-line">Año Personal 3</span>
+            <p>
+              Favorece proyectos creativos, hobbies, aprendizajes dinámicos y formas más vivas de disfrutar lo que hace.
+            </p>
+          </article>
+
+          <article class="trio-card">
+            <span class="role-label">Conexión y diálogo</span>
+            <h3>Vida social e intercambio</h3>
+            <span class="meta-line">Año Personal 3</span>
+            <p>
+              Impulsa encuentros estimulantes, conversaciones sinceras y redes que suman entusiasmo y movimiento.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="num-areas" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">02</span>
+            <h2>Cómo se vive el 2027</h2>
+          </div>
+          <span class="panel-tag">Áreas clave</span>
+        </div>
+        <div class="entries-grid">
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Proyectos y creatividad</h3>
+              <span class="coords">Año 3</span>
+            </div>
+            <p>
+              Ideal para darle forma a ideas que venía pensando y probar enfoques más creativos y flexibles.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Vínculos y entorno</h3>
+              <span class="coords">Año 3</span>
+            </div>
+            <p>
+              El diálogo claro y una actitud más abierta ayudan a acercarse a personas afines y a destrabar tensiones.
+            </p>
+          </article>
+
+          <article class="entry">
+            <div class="entry-top">
+              <h3>Ritmo y energía</h3>
+              <span class="coords">Año 3</span>
+            </div>
+            <p>
+              Trae entusiasmo y movimiento, por lo que conviene elegir bien dónde poner atención para no agotarse.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="num-luces-sombras" class="panel">
+        <div class="panel-head">
+          <div class="panel-title-group">
+            <span class="panel-num">03</span>
+            <h2>Potencial y puntos de cuidado</h2>
+          </div>
+          <span class="panel-tag">Equilibrio del ciclo</span>
+        </div>
+        <div class="two-col">
+          <div class="note-box">
+            <h3>A favor en 2027</h3>
+            <p>
+              Facilidad para expresarse, generar ideas nuevas, conectar con otros y darle un aire más luminoso a sus metas.
+            </p>
+          </div>
+          <div class="note-box">
+            <h3>A cuidar en 2027</h3>
+            <p>
+              La dispersión, abrir demasiados frentes a la vez o dejar asuntos prácticos pendientes por entusiasmo rápido.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <span class="eyebrow">Síntesis numerológica 2027</span>
+        <h2>Un año 3 para crear, decir y disfrutar</h2>
+        <p>
+          Nacida el 17/11, Natalia entra en un Año Personal 3 en 2027 que favorece la expresión creativa, el diálogo y
+          la apertura hacia nuevas posibilidades.
+        </p>
+        <div class="advice-note">
+          <strong>Consejo breve · Numerología 2027</strong>
+          Elige pocos proyectos clave y dales continuidad: tu creatividad brilla más cuando enfocas tu energía sin dispersarte.
+        </div>
+      </section>
+    </div>
+
+    <footer>Natalia · Carta Natal, Revolución Solar &amp; Numerología 2027</footer>
+  </div>
+
+  <script>
+    (function () {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+      const panels = document.querySelectorAll('section.panel');
+
+      // Tab switching logic
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('aria-controls');
+
+          tabButtons.forEach((b) => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+
+          tabPanels.forEach((panel) => {
+            panel.classList.remove('is-active');
+          });
+
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+
+          const activePanel = document.getElementById(targetId);
+          if (activePanel) {
+            activePanel.classList.add('is-active');
+          }
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      // Subtle active highlight on scroll for cards
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              entry.target.classList.toggle('is-visible', entry.isIntersecting);
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        panels.forEach((sec) => observer.observe(sec));
+      }
+
+      // Adorable penguin greeting on page load
+      const greeter = document.getElementById('penguinGreeter');
+      const closeBtn = document.getElementById('penguinCloseBtn');
+      const avatarBtn = document.getElementById('penguinAvatarBtn');
+      const msgEl = document.getElementById('penguinMessage');
+
+      const greetings = [
+        '¡Qué lindo tenerte acá! Bienvenida a tu mapa en rosita.',
+        '¡Hola! Tu 2027 viene con energía de Año Personal 3 ✨',
+        '¡Chu-chu! Tocá las solapas arriba para explorar todo.'
+      ];
+      let greetingIdx = 0;
+
+      if (greeter && closeBtn && avatarBtn && msgEl) {
+        window.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => {
+            greeter.classList.add('is-open');
+          }, 260);
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          greeter.classList.remove('is-open');
+        });
+
+        avatarBtn.addEventListener('click', () => {
+          greetingIdx = (greetingIdx + 1) % greetings.length;
+          msgEl.textContent = greetings[greetingIdx];
+          greeter.classList.add('is-open');
+        });
+      }
+
+    })();
+  </script>
+
+  <!-- Adorable greeting penguin on page load -->
+  <aside id="penguinGreeter" class="penguin-greeter" aria-label="Saludo de bienvenida del pingüino">
+    <div class="penguin-bubble" role="status" aria-live="polite">
+      <button type="button" class="penguin-close" id="penguinCloseBtn" aria-label="Cerrar saludo">✕</button>
+      <strong>¡Hola, Nati! ♡</strong>
+      <span id="penguinMessage">¡Qué lindo tenerte acá! Bienvenida a tu mapa en rosita.</span>
+    </div>
+    <button type="button" class="penguin-avatar-btn" id="penguinAvatarBtn" title="¡Tocame para saludarte!" aria-label="Saludar al pingüino">
+      <svg viewBox="0 0 88 94" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Soft pink ground shadow -->
+        <ellipse cx="46" cy="87" rx="22" ry="5" fill="rgba(214, 56, 116, 0.22)" />
+        <!-- Left waving wing -->
+        <g class="penguin-wing-wave">
+          <path d="M25 48 C11 40, 8 27, 17 24 C23 22, 29 33, 31 44 Z" fill="#3a2736" />
+          <circle cx="15" cy="24" r="3" fill="#ff85b3" opacity="0.8" />
+        </g>
+        <!-- Right wing -->
+        <path d="M61 48 C74 44, 78 55, 71 61 C65 65, 59 58, 57 50 Z" fill="#3a2736" />
+        <!-- Body -->
+        <ellipse cx="44" cy="56" rx="21" ry="26" fill="#3a2736" />
+        <!-- Rosy cream belly -->
+        <ellipse cx="45" cy="59" rx="14.5" ry="19.5" fill="#fff4f8" />
+        <!-- Cute little heart on belly -->
+        <path d="M45 66 C45 66, 39.5 62, 39.5 58.3 C39.5 56.2, 41.2 54.8, 43 54.8 C44.1 54.8, 44.8 55.4, 45 56 C45.2 55.4, 45.9 54.8, 47 54.8 C48.8 54.8, 50.5 56.2, 50.5 58.3 C50.5 62, 45 66, 45 66 Z" fill="#ff5c97" />
+        <!-- Head -->
+        <circle cx="44" cy="29" r="17.5" fill="#3a2736" />
+        <!-- Face mask -->
+        <ellipse cx="45" cy="32" rx="12.5" ry="11.5" fill="#fff4f8" />
+        <!-- Rosy cheeks -->
+        <ellipse cx="35.5" cy="34.5" rx="3.8" ry="2.3" fill="#ff9bc0" opacity="0.85" />
+        <ellipse cx="54.5" cy="34.5" rx="3.8" ry="2.3" fill="#ff9bc0" opacity="0.85" />
+        <!-- Eyes -->
+        <circle cx="39.5" cy="29.5" r="2.7" fill="#2b1724" />
+        <circle cx="50.5" cy="29.5" r="2.7" fill="#2b1724" />
+        <circle cx="40.4" cy="28.5" r="1.05" fill="#ffffff" />
+        <circle cx="51.4" cy="28.5" r="1.05" fill="#ffffff" />
+        <!-- Cute beak -->
+        <path d="M41.5 34.5 Q45 32.5 48.5 34.5 Q45 40 41.5 34.5 Z" fill="#ff7aa8" />
+        <!-- Little pink bow -->
+        <path d="M44 13 L37 9.5 L38.5 16.5 Z" fill="#ff5c97" />
+        <path d="M44 13 L51 9.5 L49.5 16.5 Z" fill="#ff5c97" />
+        <circle cx="44" cy="13" r="2.5" fill="#d63874" />
+        <!-- Feet -->
+        <ellipse cx="37.5" cy="82" rx="6.5" ry="3.3" fill="#ff7aa8" />
+        <ellipse cx="51.5" cy="82" rx="6.5" ry="3.3" fill="#ff7aa8" />
+      </svg>
+    </button>
+  </aside>
+
+</body>
+</html>
